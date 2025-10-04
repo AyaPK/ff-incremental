@@ -19,9 +19,11 @@ func _process(_delta: float) -> void:
 	pass
 
 func _on_move_timer_timeout() -> void:
-	$Weapon.show()
-	$Weapon/WeaponAnimation.play("attack")
-	$CharAnim.play("attack")
+	if BattleManager.battle_scene.enemy_slot_1:
+		$Weapon.show()
+		$Weapon/WeaponAnimation.play("attack")
+		$CharAnim.play("attack")
+		BattleManager.damage_enemy(5)
 
 func _on_char_anim_animation_finished(_anim_name: StringName) -> void:
 	$Weapon.hide()

@@ -8,4 +8,5 @@ script = ExtResource("1_0lhoa")
 name = "Goblin"
 hp = 10
 image = ExtResource("1_havss")
+exp_drop = 3
 metadata/_custom_type_script = "uid://dih3tisymcd2b"
