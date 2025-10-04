@@ -11,7 +11,7 @@ func _ready() -> void:
 	character.max_hp = 10
 	character.hp = 10
 	character.image = load("res://assets/sprites/characters/"+character.job+".png")
-	character.speed = 5.0
+	character.speed = 1.0
 	member_1 = character
 	
 func get_party() -> Array[Character]:
@@ -24,7 +24,6 @@ func get_party() -> Array[Character]:
 		party_array.append(member_3)
 	if member_4:
 		party_array.append(member_4)
-	print(party_array)
 	return party_array
 
 func get_party_slot(num: int) -> Character:

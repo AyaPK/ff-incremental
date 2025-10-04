@@ -1,0 +1,99 @@
+[gd_scene load_steps=9 format=3 uid="uid://b0dgj6tk3ed4a"]
+
+[ext_resource type="Texture2D" uid="uid://8gbff3l2spg7" path="res://assets/sprites/enemies/goblin.png" id="1_g04bj"]
+[ext_resource type="Shader" uid="uid://wvdou03mgiob" path="res://shaders/dropshadow.gdshader" id="1_y4dy6"]
+[ext_resource type="Script" uid="uid://3at1qvltblsc" path="res://scripts/enemy_slot.gd" id="3_4c7ng"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4c7ng"]
+shader = ExtResource("1_y4dy6")
+shader_parameter/offset = Vector2(8, 0)
+shader_parameter/modulate = Color(0, 0, 0, 0.3882353)
+
+[sub_resource type="Animation" id="Animation_4c7ng"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_farwc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s3jpm"]
+resource_name = "attack"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(30, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_farwc"]
+_data = {
+&"RESET": SubResource("Animation_farwc"),
+&"attack": SubResource("Animation_s3jpm"),
+&"idle": SubResource("Animation_4c7ng")
+}
+
+[node name="EnemySlot" type="Sprite2D"]
+material = SubResource("ShaderMaterial_4c7ng")
+texture = ExtResource("1_g04bj")
+script = ExtResource("3_4c7ng")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_farwc")
+}
+autoplay = "idle"

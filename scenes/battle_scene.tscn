@@ -40,10 +40,10 @@ texture = ExtResource("1_idkgt")
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 561.0
-offset_top = 466.0
-offset_right = 897.0
-offset_bottom = 498.0
+offset_left = 558.0
+offset_top = 497.0
+offset_right = 894.0
+offset_bottom = 529.0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_pxwbd")
 
@@ -51,4 +51,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_pxwbd")
 layout_mode = 2
 
 [node name="Character1Position" type="Marker2D" parent="."]
-position = Vector2(615, 238)
+position = Vector2(614, 265)
+
+[node name="Enemy1Position" type="Marker2D" parent="."]
+position = Vector2(189, 260)
