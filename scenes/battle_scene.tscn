@@ -37,11 +37,18 @@ layout_mode = 2
 texture = ExtResource("1_idkgt")
 
 [node name="CharStats" type="PanelContainer" parent="."]
-offset_left = 467.0
-offset_top = 355.0
-offset_right = 896.0
-offset_bottom = 500.0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 561.0
+offset_top = 466.0
+offset_right = 897.0
+offset_bottom = 498.0
+grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_pxwbd")
 
+[node name="CharStatsBox" type="VBoxContainer" parent="CharStats"]
+layout_mode = 2
+
 [node name="Character1Position" type="Marker2D" parent="."]
-position = Vector2(668, 237)
+position = Vector2(615, 238)

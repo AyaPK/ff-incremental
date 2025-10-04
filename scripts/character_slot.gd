@@ -18,6 +18,11 @@ func _process(_delta: float) -> void:
 		timer_display.value = percent
 	pass
 
-
 func _on_move_timer_timeout() -> void:
-	print(character.job+" is ready to act!")
+	$Weapon.show()
+	$Weapon/WeaponAnimation.play("attack")
+	$CharAnim.play("attack")
+
+func _on_char_anim_animation_finished(_anim_name: StringName) -> void:
+	$Weapon.hide()
+	$CharAnim.play("idle")

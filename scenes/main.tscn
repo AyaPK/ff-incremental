@@ -25,7 +25,7 @@ offset_bottom = 650.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_sugp2")
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer"]
-modulate = Color(0.17718235, 0.5561167, 0.8243149, 1)
+modulate = Color(0, 1.621784, 3.247858, 1)
 z_index = -3
 layout_mode = 2
 texture = ExtResource("1_o5qli")

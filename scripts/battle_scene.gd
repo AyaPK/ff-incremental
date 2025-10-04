@@ -6,7 +6,7 @@ const CHARACTER_STAT_BAR = preload("uid://uik7qxyygjte")
 var character_slot_1: CharacterSlot
 
 @onready var character_1_position: Marker2D = $Character1Position
-@onready var char_stats: PanelContainer = $CharStats
+@onready var char_stats: VBoxContainer = $CharStats/CharStatsBox
 
 func _ready() -> void:
 	BattleManager.battle_scene = self
