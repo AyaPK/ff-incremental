@@ -8,8 +8,10 @@ var member_4: Character
 func _ready() -> void:
 	var character: Character = Character.new()
 	character.job = "fighter"
+	character.max_hp = 10
 	character.hp = 10
 	character.image = load("res://assets/sprites/characters/"+character.job+".png")
+	character.speed = 5.0
 	member_1 = character
 	
 func get_party() -> Array[Character]:

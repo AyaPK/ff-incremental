@@ -1,6 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxsrhy7oue3kw"]
+[gd_scene load_steps=7 format=3 uid="uid://dxsrhy7oue3kw"]
 
+[ext_resource type="Shader" uid="uid://wvdou03mgiob" path="res://shaders/dropshadow.gdshader" id="1_ndgm5"]
 [ext_resource type="Script" uid="uid://coxre4du2c276" path="res://scripts/character_slot.gd" id="2_v8ima"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h3508"]
+shader = ExtResource("1_ndgm5")
+shader_parameter/offset = Vector2(8, 0)
+shader_parameter/modulate = Color(0, 0, 0, 0.3764706)
 
 [sub_resource type="Animation" id="Animation_ndgm5"]
 resource_name = "idle"
@@ -12,7 +18,7 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.56666666),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
@@ -40,6 +46,7 @@ _data = {
 }
 
 [node name="CharacterSlot" type="Sprite2D"]
+material = SubResource("ShaderMaterial_h3508")
 hframes = 2
 script = ExtResource("2_v8ima")
 
@@ -48,3 +55,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_jip5g")
 }
 autoplay = "idle"
+
+[node name="MoveTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]

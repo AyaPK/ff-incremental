@@ -1,6 +1,7 @@
 class_name Character extends Node
 
 var job: String
+var max_hp: int
 var hp: int
 var image: Texture2D
 var speed: float

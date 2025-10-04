@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://uik7qxyygjte"]
+
+[ext_resource type="Script" uid="uid://bf7s2qo7rih0j" path="res://scenes/character_stat_bar.gd" id="1_t2u6x"]
+[ext_resource type="Theme" uid="uid://b0c7mxh1wri65" path="res://themes/stat_font.tres" id="2_1ynl1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8qdv8"]
+content_margin_bottom = 32.0
+bg_color = Color(0.84553635, 0.8815268, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="CharacterStatBar" type="HBoxContainer"]
+layout_direction = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+alignment = 1
+script = ExtResource("1_t2u6x")
+
+[node name="HP" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("2_1ynl1")
+text = "HP:"
+
+[node name="HP_amount" type="Label" parent="."]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("2_1ynl1")
+text = "999"
+horizontal_alignment = 2
+
+[node name="HP_slash" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("2_1ynl1")
+text = "/"
+
+[node name="HP_max" type="Label" parent="."]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("2_1ynl1")
+text = "999"
+
+[node name="ActProgress" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(150, 20)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_8qdv8")
+value = 50.0
+show_percentage = false
