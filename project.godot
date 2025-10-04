@@ -11,5 +11,15 @@ config_version=5
 [application]
 
 config/name="FF-Incremental"
+run/main_scene="uid://c3t5u4021su15"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+PartyManager="*res://00_globals/party_manager.gd"
+BattleManager="*res://00_globals/battle_manager.gd"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

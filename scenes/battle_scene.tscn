@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://ba1kvyicctv8r"]
+
+[ext_resource type="Texture2D" uid="uid://bkqsxtvm5mq4m" path="res://assets/battle_bgs/plains-forest.png" id="1_idkgt"]
+[ext_resource type="Texture2D" uid="uid://crvv7xv0u4uel" path="res://assets/UI/Border.png" id="1_kinr6"]
+[ext_resource type="Script" uid="uid://bx3dcgkqd5wtr" path="res://scripts/battle_scene.gd" id="1_rca61"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rca61"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+texture = ExtResource("1_kinr6")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[node name="BattleScene" type="Node2D"]
+script = ExtResource("1_rca61")
+
+[node name="Panel" type="PanelContainer" parent="."]
+offset_right = 816.0
+offset_bottom = 459.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_rca61")
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+z_index = -1
+layout_mode = 2
+texture = ExtResource("1_idkgt")
+
+[node name="Character1Position" type="Marker2D" parent="."]
+position = Vector2(590, 237)
