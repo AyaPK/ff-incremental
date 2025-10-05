@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ba1kvyicctv8r"]
+[gd_scene load_steps=10 format=3 uid="uid://ba1kvyicctv8r"]
 
 [ext_resource type="Texture2D" uid="uid://bkqsxtvm5mq4m" path="res://assets/battle_bgs/plains-forest.png" id="1_idkgt"]
 [ext_resource type="Texture2D" uid="uid://crvv7xv0u4uel" path="res://assets/UI/Border.png" id="1_kinr6"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://byrbmly4461g" path="res://assets/UI/Border_filled.png" id="4_8qdv8"]
 [ext_resource type="FontFile" uid="uid://cx7qgymunfupm" path="res://assets/fonts/m5x7.ttf" id="5_pxwbd"]
 [ext_resource type="Texture2D" uid="uid://c7cnld4x0jvyq" path="res://assets/UI/area_label.png" id="6_1i8jf"]
-[ext_resource type="Texture2D" uid="uid://bsxm4sowri5ab" path="res://assets/UI/respawn_bar_outline.png" id="7_rum4d"]
 [ext_resource type="Texture2D" uid="uid://bk8m5noxwpu8k" path="res://assets/UI/respawn_bar.png" id="7_svpld"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rca61"]
@@ -125,7 +124,6 @@ scale = Vector2(2, 2)
 max_value = 500.0
 value = 430.0
 fill_mode = 4
-texture_over = ExtResource("7_rum4d")
 texture_progress = ExtResource("7_svpld")
 texture_progress_offset = Vector2(3, 4)
 

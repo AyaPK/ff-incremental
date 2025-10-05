@@ -1,0 +1,42 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://qjlccl67t0sg"]
+
+[ext_resource type="FontFile" uid="uid://cx7qgymunfupm" path="res://assets/fonts/m5x7.ttf" id="1_o8fh8"]
+[ext_resource type="Texture2D" uid="uid://byrbmly4461g" path="res://assets/UI/Border_filled.png" id="1_oxcnv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xl73j"]
+content_margin_top = 6.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oxcnv"]
+content_margin_top = 6.0
+texture = ExtResource("1_oxcnv")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0.59313357, 0.5931336, 0.5931334, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o8fh8"]
+content_margin_top = 6.0
+texture = ExtResource("1_oxcnv")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aaibl"]
+content_margin_top = 6.0
+texture = ExtResource("1_oxcnv")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0.5609549, 0.5609549, 0.5609549, 0.5372549)
+
+[resource]
+Button/constants/outline_size = 10
+Button/font_sizes/font_size = 60
+Button/fonts/font = ExtResource("1_o8fh8")
+Button/styles/focus = SubResource("StyleBoxTexture_xl73j")
+Button/styles/hover = SubResource("StyleBoxTexture_oxcnv")
+Button/styles/normal = SubResource("StyleBoxTexture_o8fh8")
+Button/styles/pressed = SubResource("StyleBoxTexture_aaibl")

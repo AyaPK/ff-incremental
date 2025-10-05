@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://cd4ehv0x3cpnd"]
+
+[ext_resource type="Texture2D" uid="uid://byrbmly4461g" path="res://assets/UI/Border_filled.png" id="1_xc5k0"]
+[ext_resource type="Script" uid="uid://cm0e0d2tj8kqg" path="res://scripts/resources_panel.gd" id="2_ojf31"]
+[ext_resource type="Texture2D" uid="uid://luqo1olai5d1" path="res://assets/sprites/items/coin.png" id="3_75jj8"]
+[ext_resource type="Theme" uid="uid://b0c7mxh1wri65" path="res://themes/stat_font.tres" id="4_188x2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tefeu"]
+texture = ExtResource("1_xc5k0")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[node name="ResourcesPanel" type="PanelContainer"]
+offset_left = 21.0
+offset_top = 19.0
+offset_right = 217.0
+offset_bottom = 89.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_tefeu")
+script = ExtResource("2_ojf31")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+texture = ExtResource("3_75jj8")
+
+[node name="GP_Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_188x2")
+text = "GP: "
+
+[node name="GP_Amount" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_188x2")
+text = "999"
