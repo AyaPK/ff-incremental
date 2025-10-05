@@ -20,7 +20,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 
-func spawn_character() -> void:
+func spawn_character() -> void:	
 	character_slot_1 = CHARACTER_SLOT.instantiate()
 	character_slot_1.character = PartyManager.get_party_slot(1)
 	add_child(character_slot_1)
@@ -31,8 +31,26 @@ func spawn_character() -> void:
 	char_stats.add_child(char_stat_bar)
 
 func spawn_enemy(enemy: EnemyResource) -> void:
+	if enemy_slot_1:
+		enemy_slot_1.queue_free()
 	enemy_slot_1 = ENEMY_SLOT.instantiate()
 	enemy_slot_1.enemy_resource = enemy
-	enemy_slot_1.process_resource()
 	add_child(enemy_slot_1)
 	enemy_slot_1.global_position = enemy_1_position.global_position
+
+func pause_timers() -> void:
+	character_slot_1.move_timer.paused = true
+	if enemy_slot_1:
+		enemy_slot_1.move_timer.paused = true
+
+func start_timers() -> void:
+	character_slot_1.move_timer.paused = false
+	if enemy_slot_1:
+		enemy_slot_1.move_timer.paused = false
+
+func refresh_stats() -> void:
+	for c: CharStatBar in char_stats.get_children():
+		c.refresh_stats()
+
+func _on_button_pressed() -> void:
+	BattleManager.load_enemy("wolf")

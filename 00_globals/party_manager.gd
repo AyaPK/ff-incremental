@@ -11,7 +11,7 @@ func _ready() -> void:
 	character.max_hp = 10
 	character.hp = 10
 	character.image = load("res://assets/sprites/characters/"+character.job+".png")
-	character.speed = 2.0
+	character.speed = 5
 	member_1 = character
 	
 func get_party() -> Array[Character]:

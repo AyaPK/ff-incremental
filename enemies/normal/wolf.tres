@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://llqeafrcsi3i"]
+
+[ext_resource type="Texture2D" uid="uid://dgnme5muswhgb" path="res://assets/sprites/enemies/wolf.png" id="1_aead4"]
+[ext_resource type="Script" uid="uid://dih3tisymcd2b" path="res://enemies/enemy_resource.gd" id="2_qbk6l"]
+
+[resource]
+script = ExtResource("2_qbk6l")
+name = "Wolf"
+hp = 12
+image = ExtResource("1_aead4")
+exp_drop = 4
+speed = 2.9
+metadata/_custom_type_script = "uid://dih3tisymcd2b"

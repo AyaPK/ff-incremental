@@ -14,3 +14,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	pass
+
+func refresh_stats() -> void:
+	hp_amount.text = str(character_slot.character.hp)
+	hp_max.text = str(character_slot.character.max_hp)

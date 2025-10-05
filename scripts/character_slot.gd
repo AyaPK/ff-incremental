@@ -1,6 +1,7 @@
 class_name CharacterSlot extends Sprite2D
 
 @onready var move_timer: Timer = $MoveTimer
+@onready var hurt_animation: AnimationPlayer = $HurtAnimation
 
 var character: Character
 var timer_display: ProgressBar
@@ -19,12 +20,22 @@ func _process(_delta: float) -> void:
 	pass
 
 func _on_move_timer_timeout() -> void:
-	if BattleManager.battle_scene.enemy_slot_1:
+	print("attacking")
+	if BattleManager.battle_scene.enemy_slot_1 and !BattleManager.battle_scene.enemy_slot_1.dying:
+		move_timer.stop()
 		$Weapon.show()
 		$Weapon/WeaponAnimation.play("attack")
 		$CharAnim.play("attack")
 		BattleManager.damage_enemy(5)
+		await get_tree().create_timer(0.5).timeout
+		move_timer.start()
 
 func _on_char_anim_animation_finished(_anim_name: StringName) -> void:
 	$Weapon.hide()
 	$CharAnim.play("idle")
+
+func show_damage(num: int) -> void:
+	var scn = load("res://scenes/damage_number.tscn")
+	var damage_num: DamageNumber = scn.instantiate()
+	damage_num.text = str(num)
+	add_child(damage_num)

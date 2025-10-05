@@ -5,12 +5,15 @@ var enemy_resource: EnemyResource
 var max_hp: int
 var hp: int
 var enemy_name: String
+var dying = false
 
-# Called when the node enters the scene tree for the first time.
+@onready var hurt_animation: AnimationPlayer = $HurtAnimation
+@onready var move_timer: Timer = $MoveTimer
+
 func _ready() -> void:
-	pass # Replace with function body.
+	process_resource()
+	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
 
@@ -19,6 +22,7 @@ func process_resource() -> void:
 	hp = max_hp
 	enemy_name = enemy_resource.name
 	texture = enemy_resource.image
+	move_timer.wait_time = enemy_resource.speed
 	pass
 
 func show_damage(num: int) -> void:
@@ -27,3 +31,15 @@ func show_damage(num: int) -> void:
 	damage_num.text = str(num)
 	add_child(damage_num)
 	
+func kill() -> void:
+	await hurt_animation.animation_finished
+	material = null
+	hurt_animation.play("die")
+	dying = true
+	await hurt_animation.animation_finished
+	queue_free()
+
+func _on_move_timer_timeout() -> void:
+	if !dying:
+		$AttackAnimation.play("attack")
+		BattleManager.damage_character(2)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b0dgj6tk3ed4a"]
+[gd_scene load_steps=13 format=3 uid="uid://b0dgj6tk3ed4a"]
 
 [ext_resource type="Texture2D" uid="uid://8gbff3l2spg7" path="res://assets/sprites/enemies/goblin.png" id="1_g04bj"]
 [ext_resource type="Shader" uid="uid://wvdou03mgiob" path="res://shaders/dropshadow.gdshader" id="1_y4dy6"]
@@ -7,23 +7,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4c7ng"]
 shader = ExtResource("1_y4dy6")
 shader_parameter/offset = Vector2(8, 0)
-shader_parameter/modulate = Color(0, 0, 0, 0.3882353)
-
-[sub_resource type="Animation" id="Animation_4c7ng"]
-resource_name = "idle"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
+shader_parameter/modulate = Color(0, 0, 0, 0.44705883)
 
 [sub_resource type="Animation" id="Animation_farwc"]
 length = 0.001
@@ -51,6 +35,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_s3jpm"]
 resource_name = "attack"
@@ -70,14 +66,30 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
+tracks/1/path = NodePath(".:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.16666667, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(30, 0), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(30, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4c7ng"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_farwc"]
@@ -87,13 +99,76 @@ _data = {
 &"idle": SubResource("Animation_4c7ng")
 }
 
+[sub_resource type="Animation" id="Animation_0ql3d"]
+resource_name = "hurt"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.46666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_l5iwy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_sj77c"]
+resource_name = "die"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0001, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(18.892157, 18.892157, 18.892157, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sj77c"]
+_data = {
+&"RESET": SubResource("Animation_l5iwy"),
+&"die": SubResource("Animation_sj77c"),
+&"hurt": SubResource("Animation_0ql3d")
+}
+
 [node name="EnemySlot" type="Sprite2D"]
 material = SubResource("ShaderMaterial_4c7ng")
 texture = ExtResource("1_g04bj")
 script = ExtResource("3_4c7ng")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AttackAnimation" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_farwc")
 }
 autoplay = "idle"
+
+[node name="HurtAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_sj77c")
+}
+
+[node name="MoveTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]
