@@ -9,6 +9,6 @@ name = "Goblin"
 image = ExtResource("1_havss")
 hp = 10
 speed = 6.0
-exp_drop = 3
+exp_drop = 20
 gp_drop = 2
 metadata/_custom_type_script = "uid://dih3tisymcd2b"

@@ -4,6 +4,8 @@ var enemy_resource: EnemyResource
 
 var max_hp: int
 var hp: int
+var attack: int
+var defense: int
 var enemy_name: String
 var dying = false
 
@@ -20,6 +22,8 @@ func _process(_delta: float) -> void:
 func process_resource() -> void:
 	max_hp = enemy_resource.hp
 	hp = max_hp
+	attack = enemy_resource.attack
+	defense = enemy_resource.defense
 	enemy_name = enemy_resource.name
 	texture = enemy_resource.image
 	move_timer.wait_time = enemy_resource.speed
@@ -38,6 +42,7 @@ func kill() -> void:
 	dying = true
 	await hurt_animation.animation_finished
 	ResourceManager.gp += enemy_resource.gp_drop
+	PartyManager.member_1.add_experience(enemy_resource.exp_drop)
 	queue_free()
 
 func _on_move_timer_timeout() -> void:

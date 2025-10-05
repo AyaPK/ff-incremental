@@ -15,10 +15,15 @@ func load_enemy(enemy_name: String) -> void:
 	var enemy_resource: EnemyResource = EnemyIndex.load_resource(enemy_name)
 	battle_scene.spawn_enemy(enemy_resource)
 
-func damage_enemy(dmg: int) -> void:
+func damage_enemy() -> void:
+	var char_atk: int = battle_scene.character_slot_1.character.attack
+	var dmg: int = randi_range(char_atk, char_atk*2) - battle_scene.enemy_slot_1.defense
+	dmg = clampi(dmg, 1, dmg)
 	battle_scene.pause_timers()
 	battle_scene.enemy_slot_1.hp -= dmg
 	battle_scene.enemy_slot_1.show_damage(dmg)
+	if battle_scene.enemy_slot_1.hp <= 0:
+		battle_scene.enemy_slot_1.dying = true
 	battle_scene.enemy_slot_1.hurt_animation.play("hurt")
 	if battle_scene.enemy_slot_1.hp <= 0:
 		battle_scene.enemy_slot_1.kill()

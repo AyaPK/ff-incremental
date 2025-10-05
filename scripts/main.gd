@@ -23,5 +23,5 @@ func _on_show_battle_pressed() -> void:
 
 
 func _on_heal_pressed() -> void:
-	PartyManager.get_party_slot(1).hp = 10
+	PartyManager.member_1.hp = PartyManager.member_1.max_hp
 	$BattleScene.refresh_stats()

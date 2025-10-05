@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://ba1kvyicctv8r"]
+[gd_scene load_steps=11 format=3 uid="uid://ba1kvyicctv8r"]
 
 [ext_resource type="Texture2D" uid="uid://bkqsxtvm5mq4m" path="res://assets/battle_bgs/plains-forest.png" id="1_idkgt"]
 [ext_resource type="Texture2D" uid="uid://crvv7xv0u4uel" path="res://assets/UI/Border.png" id="1_kinr6"]
 [ext_resource type="Script" uid="uid://bx3dcgkqd5wtr" path="res://scripts/battle_scene.gd" id="1_rca61"]
 [ext_resource type="Texture2D" uid="uid://byrbmly4461g" path="res://assets/UI/Border_filled.png" id="4_8qdv8"]
 [ext_resource type="FontFile" uid="uid://cx7qgymunfupm" path="res://assets/fonts/m5x7.ttf" id="5_pxwbd"]
+[ext_resource type="Texture2D" uid="uid://c7cnld4x0jvyq" path="res://assets/UI/area_label.png" id="6_1i8jf"]
+[ext_resource type="Texture2D" uid="uid://bsxm4sowri5ab" path="res://assets/UI/respawn_bar_outline.png" id="7_rum4d"]
+[ext_resource type="Texture2D" uid="uid://bk8m5noxwpu8k" path="res://assets/UI/respawn_bar.png" id="7_svpld"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rca61"]
 content_margin_left = 8.0
@@ -65,10 +68,10 @@ offset_bottom = 551.0
 text = "Spawn Enemy"
 
 [node name="AreaChanger" type="HBoxContainer" parent="."]
-offset_left = 258.0
+offset_left = 242.0
 offset_top = 14.0
-offset_right = 702.0
-offset_bottom = 55.0
+offset_right = 696.0
+offset_bottom = 70.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
 
@@ -78,12 +81,26 @@ theme_override_fonts/font = ExtResource("5_pxwbd")
 theme_override_font_sizes/font_size = 60
 text = "<"
 
-[node name="AreaName" type="Label" parent="AreaChanger"]
+[node name="TextureRect" type="TextureRect" parent="AreaChanger"]
+self_modulate = Color(1, 1, 1, 0.29803923)
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
+texture = ExtResource("6_1i8jf")
+
+[node name="AreaName" type="Label" parent="AreaChanger/TextureRect"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 0
+offset_left = 27.0
+offset_top = 7.0
+offset_right = 427.0
+offset_bottom = 48.0
 size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7411765)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 4
 theme_override_constants/outline_size = 11
+theme_override_constants/shadow_outline_size = 7
 theme_override_fonts/font = ExtResource("5_pxwbd")
 theme_override_font_sizes/font_size = 50
 text = "Area Name"
@@ -95,6 +112,24 @@ theme_override_fonts/font = ExtResource("5_pxwbd")
 theme_override_font_sizes/font_size = 60
 text = ">"
 
+[node name="RespawnTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="RespawnBar" type="TextureProgressBar" parent="."]
+offset_left = 125.0
+offset_top = 195.0
+offset_right = 318.0
+offset_bottom = 259.0
+scale = Vector2(2, 2)
+max_value = 500.0
+value = 430.0
+fill_mode = 4
+texture_over = ExtResource("7_rum4d")
+texture_progress = ExtResource("7_svpld")
+texture_progress_offset = Vector2(3, 4)
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="AreaChanger/LeftButton" to="." method="_on_left_button_pressed"]
 [connection signal="pressed" from="AreaChanger/RightButton" to="." method="_on_right_button_pressed"]
+[connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://dxsrhy7oue3kw"]
 
 [ext_resource type="Shader" uid="uid://wvdou03mgiob" path="res://shaders/dropshadow.gdshader" id="1_ndgm5"]
-[ext_resource type="Texture2D" uid="uid://cxcoctvwpgvpm" path="res://assets/sprites/characters/fighter.png" id="2_jip5g"]
+[ext_resource type="Texture2D" uid="uid://cxcoctvwpgvpm" path="res://assets/sprites/characters/warrior.png" id="2_jip5g"]
 [ext_resource type="Script" uid="uid://coxre4du2c276" path="res://scripts/character_slot.gd" id="2_v8ima"]
 [ext_resource type="Texture2D" uid="uid://c5dqd5yceg6s1" path="res://assets/sprites/weapons/sword.png" id="4_jip5g"]
 
@@ -101,6 +101,21 @@ _data = {
 &"attack": SubResource("Animation_a110x")
 }
 
+[sub_resource type="Animation" id="Animation_mmuya"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_f1syq"]
 resource_name = "hurt"
 length = 0.5
@@ -115,21 +130,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_mmuya"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nyy3j"]

@@ -6,6 +6,7 @@ const ENEMY_SLOT = preload("uid://b0dgj6tk3ed4a")
 
 var character_slot_1: CharacterSlot
 var enemy_slot_1: EnemySlot
+var respawning: bool = false
 
 var encounter_table: EncounterTable
 
@@ -15,11 +16,23 @@ var encounter_table: EncounterTable
 @onready var enemy_1_position: Marker2D = $Enemy1Position
 
 @onready var background_image: TextureRect = $Panel/BackgroundImage
+@onready var area_name: Label = $AreaChanger/TextureRect/AreaName
+@onready var respawn_timer: Timer = $RespawnTimer
+@onready var respawn_bar: TextureProgressBar = $RespawnBar
 
 func _ready() -> void:
 	BattleManager.battle_scene = self
+	respawn_bar.hide()
 
 func _process(_delta: float) -> void:
+	if !enemy_slot_1 and !respawning:
+		pause_timers()
+		respawn_timer.start()
+		respawn_bar.value = (respawn_timer.wait_time-respawn_timer.time_left) * 100
+		respawning = true
+		respawn_bar.show()
+	elif !enemy_slot_1:
+		respawn_bar.value = (respawn_timer.wait_time-respawn_timer.time_left) * 100
 	pass
 
 func spawn_character() -> void:	
@@ -50,6 +63,13 @@ func start_timers() -> void:
 	if enemy_slot_1:
 		enemy_slot_1.move_timer.paused = false
 
+func restart_timers() -> void:
+	character_slot_1.move_timer.paused = false
+	character_slot_1.move_timer.start()
+	if enemy_slot_1:
+		enemy_slot_1.move_timer.paused = false
+		enemy_slot_1.move_timer.start()
+
 func refresh_stats() -> void:
 	for c: CharStatBar in char_stats.get_children():
 		c.refresh_stats()
@@ -57,10 +77,11 @@ func refresh_stats() -> void:
 func _on_button_pressed() -> void:
 	BattleManager.load_enemy("goblin")
 
-func change_area(area_name: String) -> void:
-	var res: AreaResource = load("res://areas/area_resources/"+area_name+".tres")
+func change_area(new_area_name: String) -> void:
+	var res: AreaResource = load("res://areas/area_resources/"+new_area_name+".tres")
 	background_image.texture = res.background
 	encounter_table = res.encounter_table
+	respawn_bar.hide()
 	var enemy = encounter_table.enemies.pick_random()
 	spawn_enemy(enemy)
 	if BattleManager.area_index <= 0:
@@ -69,6 +90,7 @@ func change_area(area_name: String) -> void:
 		$AreaChanger/RightButton.disabled = true
 	character_slot_1.move_timer.start()
 	enemy_slot_1.move_timer.start()
+	$AreaChanger/TextureRect/AreaName.text = res.name
 
 
 func _on_right_button_pressed() -> void:
@@ -82,3 +104,10 @@ func _on_left_button_pressed() -> void:
 	change_area(BattleManager.get_area_name(BattleManager.area_index))
 	if $AreaChanger/RightButton.disabled == true:
 		$AreaChanger/RightButton.disabled = false
+
+func _on_respawn_timer_timeout() -> void:
+	var enemy = encounter_table.enemies.pick_random()
+	spawn_enemy(enemy)
+	respawning = false
+	respawn_bar.hide()
+	restart_timers()

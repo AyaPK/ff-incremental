@@ -25,7 +25,7 @@ func _on_move_timer_timeout() -> void:
 		$Weapon.show()
 		$Weapon/WeaponAnimation.play("attack")
 		$CharAnim.play("attack")
-		BattleManager.damage_enemy(5)
+		BattleManager.damage_enemy()
 		await get_tree().create_timer(0.5).timeout
 		move_timer.start()
 

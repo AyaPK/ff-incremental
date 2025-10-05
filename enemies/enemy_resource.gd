@@ -7,6 +7,8 @@ class_name EnemyResource extends Resource
 
 @export_category("Stats")
 @export var hp: int
+@export var attack: int
+@export var defense: int
 @export var speed: float
 
 @export_category("Drops")

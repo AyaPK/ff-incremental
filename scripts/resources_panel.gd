@@ -6,7 +6,7 @@ func _ready() -> void:
 	gp_amount.text = str(ResourceManager.gp)
 	pass
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	refresh()
 
 func refresh() -> void:
