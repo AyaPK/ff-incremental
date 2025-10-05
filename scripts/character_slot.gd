@@ -20,7 +20,6 @@ func _process(_delta: float) -> void:
 	pass
 
 func _on_move_timer_timeout() -> void:
-	print("attacking")
 	if BattleManager.battle_scene.enemy_slot_1 and !BattleManager.battle_scene.enemy_slot_1.dying:
 		move_timer.stop()
 		$Weapon.show()

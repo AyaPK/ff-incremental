@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="AreaResource" load_steps=7 format=3 uid="uid://cb4w4qkp1ganc"]
+
+[ext_resource type="Texture2D" uid="uid://bkqsxtvm5mq4m" path="res://assets/battle_bgs/plains-forest.png" id="1_g7dyj"]
+[ext_resource type="Script" uid="uid://dih3tisymcd2b" path="res://enemies/enemy_resource.gd" id="2_0021m"]
+[ext_resource type="Resource" uid="uid://llqeafrcsi3i" path="res://enemies/normal/wolf.tres" id="3_g7dyj"]
+[ext_resource type="Script" uid="uid://6ni0cvdeit4s" path="res://areas/encounter_table.gd" id="4_ymqo7"]
+[ext_resource type="Script" uid="uid://edl5f86rvv5f" path="res://areas/area.gd" id="5_quyhl"]
+
+[sub_resource type="Resource" id="Resource_vpsin"]
+script = ExtResource("4_ymqo7")
+enemies = Array[ExtResource("2_0021m")]([ExtResource("3_g7dyj")])
+metadata/_custom_type_script = "uid://6ni0cvdeit4s"
+
+[resource]
+script = ExtResource("5_quyhl")
+name = "Nearby Woods"
+background = ExtResource("1_g7dyj")
+encounter_table = SubResource("Resource_vpsin")
+metadata/_custom_type_script = "uid://edl5f86rvv5f"

@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ba1kvyicctv8r"]
+[gd_scene load_steps=8 format=3 uid="uid://ba1kvyicctv8r"]
 
 [ext_resource type="Texture2D" uid="uid://bkqsxtvm5mq4m" path="res://assets/battle_bgs/plains-forest.png" id="1_idkgt"]
 [ext_resource type="Texture2D" uid="uid://crvv7xv0u4uel" path="res://assets/UI/Border.png" id="1_kinr6"]
 [ext_resource type="Script" uid="uid://bx3dcgkqd5wtr" path="res://scripts/battle_scene.gd" id="1_rca61"]
 [ext_resource type="Texture2D" uid="uid://byrbmly4461g" path="res://assets/UI/Border_filled.png" id="4_8qdv8"]
+[ext_resource type="FontFile" uid="uid://cx7qgymunfupm" path="res://assets/fonts/m5x7.ttf" id="5_pxwbd"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rca61"]
 content_margin_left = 8.0
@@ -31,7 +32,7 @@ offset_right = 908.44446
 offset_bottom = 511.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_rca61")
 
-[node name="TextureRect" type="TextureRect" parent="Panel"]
+[node name="BackgroundImage" type="TextureRect" parent="Panel"]
 z_index = -1
 layout_mode = 2
 texture = ExtResource("1_idkgt")
@@ -63,4 +64,37 @@ offset_right = 430.0
 offset_bottom = 551.0
 text = "Spawn Enemy"
 
+[node name="AreaChanger" type="HBoxContainer" parent="."]
+offset_left = 258.0
+offset_top = 14.0
+offset_right = 702.0
+offset_bottom = 55.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="LeftButton" type="Button" parent="AreaChanger"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_pxwbd")
+theme_override_font_sizes/font_size = 60
+text = "<"
+
+[node name="AreaName" type="Label" parent="AreaChanger"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("5_pxwbd")
+theme_override_font_sizes/font_size = 50
+text = "Area Name"
+horizontal_alignment = 1
+
+[node name="RightButton" type="Button" parent="AreaChanger"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_pxwbd")
+theme_override_font_sizes/font_size = 60
+text = ">"
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="AreaChanger/LeftButton" to="." method="_on_left_button_pressed"]
+[connection signal="pressed" from="AreaChanger/RightButton" to="." method="_on_right_button_pressed"]

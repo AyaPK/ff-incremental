@@ -37,6 +37,7 @@ func kill() -> void:
 	hurt_animation.play("die")
 	dying = true
 	await hurt_animation.animation_finished
+	ResourceManager.gp += enemy_resource.gp_drop
 	queue_free()
 
 func _on_move_timer_timeout() -> void:

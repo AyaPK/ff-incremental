@@ -1,11 +1,13 @@
 extends PanelContainer
 
+@onready var gp_amount: Label = $HBoxContainer/GP_Amount
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+	gp_amount.text = str(ResourceManager.gp)
 	pass
+
+func _process(delta: float) -> void:
+	refresh()
+
+func refresh() -> void:
+	gp_amount.text = str(ResourceManager.gp)

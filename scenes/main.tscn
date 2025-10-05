@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c3t5u4021su15"]
+[gd_scene load_steps=11 format=3 uid="uid://c3t5u4021su15"]
 
 [ext_resource type="Texture2D" uid="uid://crvv7xv0u4uel" path="res://assets/UI/Border.png" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://4vaeayaqtitf" path="res://scripts/main.gd" id="1_jyhfs"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://byrbmly4461g" path="res://assets/UI/Border_filled.png" id="5_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://luqo1olai5d1" path="res://assets/sprites/items/coin.png" id="6_o6xl0"]
 [ext_resource type="Theme" uid="uid://b0c7mxh1wri65" path="res://themes/stat_font.tres" id="6_tefeu"]
+[ext_resource type="Script" uid="uid://cm0e0d2tj8kqg" path="res://scripts/resources_panel.gd" id="6_tipki"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sugp2"]
 content_margin_left = 8.0
@@ -59,10 +60,10 @@ offset_bottom = 285.0
 text = "Show Battle"
 
 [node name="Heal" type="Button" parent="."]
-offset_left = 73.0
-offset_top = 305.0
-offset_right = 174.0
-offset_bottom = 336.0
+offset_left = 72.0
+offset_top = 293.0
+offset_right = 173.0
+offset_bottom = 324.0
 text = "Heal"
 
 [node name="ResourcesPanel" type="PanelContainer" parent="."]
@@ -71,6 +72,7 @@ offset_top = 19.0
 offset_right = 217.0
 offset_bottom = 89.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_tefeu")
+script = ExtResource("6_tipki")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ResourcesPanel"]
 layout_mode = 2

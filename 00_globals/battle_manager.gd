@@ -1,6 +1,12 @@
 extends Node
 
 var battle_scene: BattleScene
+var area_index: int = 0
+
+var areas: Array[Dictionary] = [
+	{ "name":"nearby_plains", "res":"res://areas/area_resources/nearby_plains.tres" },
+	{ "name":"nearby_woods", "res":"res://areas/area_resources/nearby_woods.tres" }
+]
 
 func load_player() -> void:
 	battle_scene.spawn_character()
@@ -25,3 +31,9 @@ func damage_character(dmg: int) -> void:
 	battle_scene.character_slot_1.character.hp -= dmg
 	battle_scene.refresh_stats()
 	battle_scene.start_timers()
+
+func get_area_name(index: int) -> String:
+	return areas[index]["name"]
+
+func get_area_resource(index: int) -> AreaResource:
+	return load(areas[index]["res"])

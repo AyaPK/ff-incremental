@@ -16,7 +16,7 @@ func _on_hide_battle_pressed() -> void:
 func _on_show_battle_pressed() -> void:
 	$BattleScene.process_mode = Node.PROCESS_MODE_ALWAYS
 	$BattleScene.refresh_stats()
-	BattleManager.load_enemy("goblin")
+	$BattleScene.change_area("nearby_plains")
 	$BattleScene.character_slot_1.move_timer.start()
 	$BattleScene.enemy_slot_1.move_timer.start()
 	$BattleScene.show()
