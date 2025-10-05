@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3t5u4021su15"]
+[gd_scene load_steps=10 format=3 uid="uid://c3t5u4021su15"]
 
 [ext_resource type="Texture2D" uid="uid://crvv7xv0u4uel" path="res://assets/UI/Border.png" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://4vaeayaqtitf" path="res://scripts/main.gd" id="1_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://m3rs2fup6oh2" path="res://assets/UI/bg.png" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://ba1kvyicctv8r" path="res://scenes/battle_scene.tscn" id="3_sugp2"]
+[ext_resource type="Texture2D" uid="uid://byrbmly4461g" path="res://assets/UI/Border_filled.png" id="5_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://luqo1olai5d1" path="res://assets/sprites/items/coin.png" id="6_o6xl0"]
+[ext_resource type="Theme" uid="uid://b0c7mxh1wri65" path="res://themes/stat_font.tres" id="6_tefeu"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sugp2"]
 content_margin_left = 8.0
@@ -11,6 +14,13 @@ content_margin_top = 8.0
 content_margin_right = 8.0
 content_margin_bottom = 8.0
 texture = ExtResource("1_0wfyh")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tefeu"]
+texture = ExtResource("5_tbgi4")
 texture_margin_left = 16.0
 texture_margin_top = 16.0
 texture_margin_right = 16.0
@@ -54,6 +64,31 @@ offset_top = 305.0
 offset_right = 174.0
 offset_bottom = 336.0
 text = "Heal"
+
+[node name="ResourcesPanel" type="PanelContainer" parent="."]
+offset_left = 21.0
+offset_top = 19.0
+offset_right = 217.0
+offset_bottom = 89.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_tefeu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ResourcesPanel"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ResourcesPanel/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+texture = ExtResource("6_o6xl0")
+
+[node name="GP_Label" type="Label" parent="ResourcesPanel/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("6_tefeu")
+text = "GP: "
+
+[node name="GP_Amount" type="Label" parent="ResourcesPanel/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("6_tefeu")
+text = "999"
 
 [connection signal="pressed" from="HideBattle" to="." method="_on_hide_battle_pressed"]
 [connection signal="pressed" from="ShowBattle" to="." method="_on_show_battle_pressed"]

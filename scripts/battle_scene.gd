@@ -53,4 +53,4 @@ func refresh_stats() -> void:
 		c.refresh_stats()
 
 func _on_button_pressed() -> void:
-	BattleManager.load_enemy("wolf")
+	BattleManager.load_enemy("goblin")

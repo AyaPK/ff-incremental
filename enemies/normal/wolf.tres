@@ -6,8 +6,9 @@
 [resource]
 script = ExtResource("2_qbk6l")
 name = "Wolf"
-hp = 12
 image = ExtResource("1_aead4")
+hp = 12
+speed = 4.5
 exp_drop = 4
-speed = 2.9
+gp_drop = 5
 metadata/_custom_type_script = "uid://dih3tisymcd2b"
