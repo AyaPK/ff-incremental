@@ -49,7 +49,9 @@ func _check_level_up() -> void:
 		BattleManager.battle_scene.refresh_stats()
 
 func _level_up() -> void:
-	max_hp += randi_range(3, 8)
+	var hp_increase: int = randi_range(3, 8)
+	max_hp += hp_increase
+	hp += hp_increase
 	if job == "warrior":
 		attack += 1
 		defense += 1

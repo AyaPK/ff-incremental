@@ -8,7 +8,7 @@ var member_4: Character
 func _ready() -> void:
 	var character: Character = Character.new()
 	character.job = "warrior"
-	character.max_hp = 10
+	character.max_hp = 100
 	character.hp = 10
 	character.image = load("res://assets/sprites/characters/"+character.job+".png")
 	character.speed = 5

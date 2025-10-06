@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://bl0l5w3gxppyx"]
+
+[ext_resource type="Script" uid="uid://dpw6sba4dqwff" path="res://scripts/inn_scene.gd" id="1_43lm1"]
+[ext_resource type="Texture2D" uid="uid://crvv7xv0u4uel" path="res://assets/UI/Border.png" id="1_132hl"]
+[ext_resource type="Theme" uid="uid://qjlccl67t0sg" path="res://themes/main_button.tres" id="2_dqubn"]
+[ext_resource type="FontFile" uid="uid://cx7qgymunfupm" path="res://assets/fonts/m5x7.ttf" id="3_vomat"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tefeu"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+texture = ExtResource("1_132hl")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[node name="InnScene" type="Node2D"]
+script = ExtResource("1_43lm1")
+
+[node name="Panel" type="PanelContainer" parent="."]
+offset_right = 908.44446
+offset_bottom = 511.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_tefeu")
+
+[node name="ColorRect" type="ColorRect" parent="Panel"]
+z_index = -1
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Heal" type="Button" parent="."]
+offset_left = 291.0
+offset_top = 363.0
+offset_right = 627.0
+offset_bottom = 433.0
+theme = ExtResource("2_dqubn")
+text = "Stay at the inn"
+
+[node name="Label" type="Label" parent="."]
+offset_left = -43.0
+offset_top = 55.0
+offset_right = 944.0
+offset_bottom = 228.0
+theme_override_fonts/font = ExtResource("3_vomat")
+theme_override_font_sizes/font_size = 50
+text = "Welcome to the inn!
+
+2gp = 1hp"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Heal" to="." method="_on_heal_pressed"]

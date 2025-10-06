@@ -116,10 +116,10 @@ wait_time = 5.0
 one_shot = true
 
 [node name="RespawnBar" type="TextureProgressBar" parent="."]
-offset_left = 125.0
-offset_top = 195.0
-offset_right = 318.0
-offset_bottom = 259.0
+offset_left = 120.0
+offset_top = 189.0
+offset_right = 313.0
+offset_bottom = 253.0
 scale = Vector2(2, 2)
 max_value = 500.0
 value = 430.0
