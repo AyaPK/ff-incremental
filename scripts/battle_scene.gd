@@ -74,9 +74,6 @@ func refresh_stats() -> void:
 	for c: CharStatBar in char_stats.get_children():
 		c.refresh_stats()
 
-func _on_button_pressed() -> void:
-	BattleManager.load_enemy("goblin")
-
 func change_area(new_area_name: String) -> void:
 	var res: AreaResource = load("res://areas/area_resources/"+new_area_name+".tres")
 	background_image.texture = res.background

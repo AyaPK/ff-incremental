@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ba1kvyicctv8r" path="res://scenes/battle_scene.tscn" id="3_sugp2"]
 [ext_resource type="Theme" uid="uid://qjlccl67t0sg" path="res://themes/main_button.tres" id="5_tefeu"]
 [ext_resource type="PackedScene" uid="uid://cd4ehv0x3cpnd" path="res://scenes/resources_panel.tscn" id="7_o6xl0"]
-[ext_resource type="PackedScene" uid="uid://bl0l5w3gxppyx" path="res://scenes/inn_scene.tscn" id="7_tipki"]
+[ext_resource type="PackedScene" uid="uid://b6v8a7ji82kqh" path="res://scenes/inn_scene.tscn" id="7_tipki"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sugp2"]
 content_margin_left = 8.0
