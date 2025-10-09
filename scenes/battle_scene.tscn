@@ -54,10 +54,10 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_pxwbd")
 layout_mode = 2
 
 [node name="Character1Position" type="Marker2D" parent="."]
-position = Vector2(614, 265)
+position = Vector2(671, 265)
 
 [node name="Enemy1Position" type="Marker2D" parent="."]
-position = Vector2(189, 260)
+position = Vector2(255, 260)
 
 [node name="AreaChanger" type="HBoxContainer" parent="."]
 offset_left = 242.0
@@ -109,10 +109,10 @@ wait_time = 5.0
 one_shot = true
 
 [node name="RespawnBar" type="TextureProgressBar" parent="."]
-offset_left = 120.0
-offset_top = 189.0
-offset_right = 313.0
-offset_bottom = 253.0
+offset_left = 184.0
+offset_top = 187.0
+offset_right = 377.0
+offset_bottom = 251.0
 scale = Vector2(2, 2)
 max_value = 500.0
 value = 430.0
