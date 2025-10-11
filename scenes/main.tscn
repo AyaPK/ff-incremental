@@ -60,5 +60,13 @@ position = Vector2(228, 19)
 visible = false
 position = Vector2(228, 19)
 
+[node name="Save" type="Button" parent="."]
+offset_left = 29.0
+offset_top = 300.0
+offset_right = 179.0
+offset_bottom = 349.0
+text = "Save"
+
 [connection signal="pressed" from="ExploreButton" to="." method="_on_explore_pressed"]
 [connection signal="pressed" from="InnButton" to="." method="_on_inn_button_pressed"]
+[connection signal="pressed" from="Save" to="." method="_on_save_pressed"]

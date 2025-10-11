@@ -32,3 +32,9 @@ func _on_inn_button_pressed() -> void:
 		state = "inn"
 		$InnScene.show()
 		$InnScene.calculate_cost()
+
+
+func _on_save_pressed() -> void:
+	PartyManager.save_character(PartyManager.member_1)
+	ResourceManager.save_file()
+	
