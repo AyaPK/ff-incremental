@@ -44,5 +44,5 @@ func _on_party_button_pressed() -> void:
 	pass
 
 func _on_save_pressed() -> void:
-	PartyManager.save_character(PartyManager.member_1)
+	PartyManager.save_characters()
 	ResourceManager.save_file()

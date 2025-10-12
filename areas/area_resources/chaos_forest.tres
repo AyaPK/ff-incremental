@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="AreaResource" load_steps=9 format=3 uid="uid://cygqq63wabk65"]
+
+[ext_resource type="Texture2D" uid="uid://d1t243rrs7sq0" path="res://assets/battle_bgs/overgrown-forest.png" id="1_pi4rh"]
+[ext_resource type="Script" uid="uid://dih3tisymcd2b" path="res://enemies/enemy_resource.gd" id="2_iq16p"]
+[ext_resource type="Resource" uid="uid://da1c81tpk7mdy" path="res://enemies/normal/crazy_horse.tres" id="3_gcqlt"]
+[ext_resource type="Script" uid="uid://6ni0cvdeit4s" path="res://areas/encounter_table.gd" id="3_mm1cx"]
+[ext_resource type="Script" uid="uid://edl5f86rvv5f" path="res://areas/area.gd" id="4_gcqlt"]
+[ext_resource type="Resource" uid="uid://llqeafrcsi3i" path="res://enemies/normal/wolf.tres" id="4_st64y"]
+[ext_resource type="Resource" uid="uid://bcmya13rt0c50" path="res://enemies/normal/goblin.tres" id="5_gq0hv"]
+
+[sub_resource type="Resource" id="Resource_st64y"]
+script = ExtResource("3_mm1cx")
+enemies = Array[ExtResource("2_iq16p")]([ExtResource("3_gcqlt"), ExtResource("3_gcqlt"), ExtResource("3_gcqlt"), ExtResource("4_st64y"), ExtResource("5_gq0hv")])
+metadata/_custom_type_script = "uid://6ni0cvdeit4s"
+
+[resource]
+script = ExtResource("4_gcqlt")
+name = "Chaos Forest"
+background = ExtResource("1_pi4rh")
+encounter_table = SubResource("Resource_st64y")
+metadata/_custom_type_script = "uid://edl5f86rvv5f"

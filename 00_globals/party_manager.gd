@@ -8,9 +8,8 @@ var member_3: Character
 var member_4: Character
 
 func _ready() -> void:
-	
 	if FileAccess.file_exists(SAVE_PATH):
-		member_1 = load_character()
+		load_characters()
 	else:
 		member_1 = create_new_character("warrior")
 
@@ -35,41 +34,42 @@ func create_new_character(job: String) -> Character:
 	character.max_hp = 10
 	character.hp = 10
 	character.image = load("res://assets/sprites/characters/"+character.job+".png")
-	character.speed = 0.5
+	character.speed = 5.0
 	character.attack = 5
 	character.defense = 5
 	character.level = 1
 	character.experience = 0
 	return character
 
-func save_character(character: Character) -> void:
+func save_characters() -> void:
 	var character_save: Dictionary = {
-		"job": character.job,
-		"max_hp": character.max_hp,
-		"hp": character.hp,
-		"speed": character.speed,
-		"attack": character.attack,
-		"defense": character.defense,
-		"level": character.level,
-		"experience": character.experience
+		"1" : {
+			"job": member_1.job,
+			"max_hp": member_1.max_hp,
+			"hp": member_1.hp,
+			"speed": member_1.speed,
+			"attack": member_1.attack,
+			"defense": member_1.defense,
+			"level": member_1.level,
+			"experience": member_1.experience
+		}
 	}
 	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	file.store_string(JSON.stringify(character_save))
 	file.close()
 
-func load_character() -> Character:
+func load_characters() -> void:
 	var file := FileAccess.open(SAVE_PATH, FileAccess.READ)
 	var json_data = JSON.parse_string(file.get_as_text())
 	file.close()
-
-	var character: Character = Character.new()
-	character.job = json_data["job"]
-	character.max_hp = json_data["max_hp"]
-	character.hp = json_data["hp"]
-	character.speed = json_data["speed"]
-	character.attack = json_data["attack"]
-	character.defense = json_data["defense"]
-	character.level = json_data["level"]
-	character.experience = json_data["experience"]
-	character.image = load("res://assets/sprites/characters/"+character.job+".png")
-	return character
+	
+	member_1 = Character.new()
+	member_1.job = json_data["1"]["job"]
+	member_1.max_hp = json_data["1"]["max_hp"]
+	member_1.hp = json_data["1"]["hp"]
+	member_1.speed = json_data["1"]["speed"]
+	member_1.attack = json_data["1"]["attack"]
+	member_1.defense = json_data["1"]["defense"]
+	member_1.level = json_data["1"]["level"]
+	member_1.experience = json_data["1"]["experience"]
+	member_1.image = load("res://assets/sprites/characters/"+member_1.job+".png")

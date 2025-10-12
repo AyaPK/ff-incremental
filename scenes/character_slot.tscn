@@ -141,7 +141,7 @@ _data = {
 [node name="CharacterSlot" type="Sprite2D"]
 material = SubResource("ShaderMaterial_h3508")
 texture = ExtResource("2_jip5g")
-hframes = 4
+hframes = 6
 script = ExtResource("2_v8ima")
 
 [node name="CharAnim" type="AnimationPlayer" parent="."]

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://da1c81tpk7mdy"]
+
+[ext_resource type="Texture2D" uid="uid://dcfwirp8sj4o5" path="res://assets/sprites/enemies/crazy_horse.png" id="1_lbbs3"]
+[ext_resource type="Script" uid="uid://dih3tisymcd2b" path="res://enemies/enemy_resource.gd" id="2_x8ji5"]
+
+[resource]
+script = ExtResource("2_x8ji5")
+name = "Crazy Horse"
+image = ExtResource("1_lbbs3")
+hp = 64
+attack = 10
+defense = 2
+speed = 3.5
+exp_drop = 40
+gp_drop = 15
+metadata/_custom_type_script = "uid://dih3tisymcd2b"

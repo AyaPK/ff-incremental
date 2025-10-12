@@ -2,10 +2,13 @@ extends Node
 
 var battle_scene: BattleScene
 var area_index: int = 0
+var dead: bool = false
 
 var areas: Array[Dictionary] = [
 	{ "name":"nearby_plains", "res":"res://areas/area_resources/nearby_plains.tres" },
-	{ "name":"nearby_woods", "res":"res://areas/area_resources/nearby_woods.tres" }
+	{ "name":"nearby_woods", "res":"res://areas/area_resources/nearby_woods.tres" },
+	{ "name":"chaos_forest", "res":"res://areas/area_resources/chaos_forest.tres" }
+
 ]
 
 func load_player() -> void:
@@ -36,9 +39,23 @@ func damage_character(dmg: int) -> void:
 	battle_scene.character_slot_1.character.hp -= dmg
 	battle_scene.refresh_stats()
 	battle_scene.start_timers()
+	
+	if battle_scene.character_slot_1.character.hp <= 0:
+		party_wipe()
 
 func get_area_name(index: int) -> String:
 	return areas[index]["name"]
 
 func get_area_resource(index: int) -> AreaResource:
 	return load(areas[index]["res"])
+
+func party_wipe() -> void:
+	battle_scene.enemy_slot_1.queue_free()
+	battle_scene.character_slot_1.character.hp = 0
+	battle_scene.refresh_stats()
+	dead = true
+	while battle_scene.character_slot_1.character.hp < 5:
+		await get_tree().create_timer(5).timeout
+		battle_scene.character_slot_1.character.hp += 1
+		battle_scene.refresh_stats()
+	dead = false

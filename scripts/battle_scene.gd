@@ -25,7 +25,9 @@ func _ready() -> void:
 	respawn_bar.hide()
 
 func _process(_delta: float) -> void:
-	if !enemy_slot_1 and !respawning:
+	if BattleManager.dead:
+		pause_timers()
+	elif !enemy_slot_1 and !respawning:
 		pause_timers()
 		respawn_timer.start()
 		respawn_bar.value = (respawn_timer.wait_time-respawn_timer.time_left) * 100
@@ -52,6 +54,7 @@ func spawn_enemy(enemy: EnemyResource) -> void:
 	enemy_slot_1.enemy_resource = enemy
 	add_child(enemy_slot_1)
 	enemy_slot_1.global_position = enemy_1_position.global_position
+	restart_timers()
 
 func pause_timers() -> void:
 	character_slot_1.move_timer.paused = true
