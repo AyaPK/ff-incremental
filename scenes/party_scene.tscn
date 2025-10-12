@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://b3ar6k2htejx3"]
+
+[ext_resource type="Texture2D" uid="uid://crvv7xv0u4uel" path="res://assets/UI/Border.png" id="1_glbmo"]
+[ext_resource type="Script" uid="uid://bx2x63qjxb7mj" path="res://scripts/party_scene.gd" id="1_xhvm1"]
+[ext_resource type="PackedScene" uid="uid://b6h0oyibjhruh" path="res://scenes/party_panel.tscn" id="2_ml5gj"]
+[ext_resource type="Texture2D" uid="uid://m3rs2fup6oh2" path="res://assets/UI/bg.png" id="3_58e27"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ml5gj"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+texture = ExtResource("1_glbmo")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_02axf"]
+texture = ExtResource("3_58e27")
+
+[node name="PartyScene" type="Node2D"]
+script = ExtResource("1_xhvm1")
+
+[node name="Panel" type="PanelContainer" parent="."]
+offset_right = 908.0
+offset_bottom = 511.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ml5gj")
+
+[node name="Panel" type="Panel" parent="Panel"]
+z_index = -1
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_02axf")
+
+[node name="PartyPanel1" parent="." instance=ExtResource("2_ml5gj")]
+offset_left = 18.0
+offset_top = 43.0
+offset_right = 229.0
+offset_bottom = 472.0
+
+[node name="PartyPanel2" parent="." instance=ExtResource("2_ml5gj")]
+offset_left = 239.0
+offset_top = 43.0
+offset_right = 450.0
+offset_bottom = 472.0
+
+[node name="PartyPanel3" parent="." instance=ExtResource("2_ml5gj")]
+offset_left = 459.0
+offset_top = 43.0
+offset_right = 670.0
+offset_bottom = 472.0
+
+[node name="PartyPanel4" parent="." instance=ExtResource("2_ml5gj")]
+offset_left = 678.0
+offset_top = 43.0
+offset_right = 889.0
+offset_bottom = 472.0

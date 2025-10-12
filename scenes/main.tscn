@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3t5u4021su15"]
+[gd_scene load_steps=10 format=3 uid="uid://c3t5u4021su15"]
 
 [ext_resource type="Texture2D" uid="uid://crvv7xv0u4uel" path="res://assets/UI/Border.png" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://4vaeayaqtitf" path="res://scripts/main.gd" id="1_jyhfs"]
@@ -7,6 +7,7 @@
 [ext_resource type="Theme" uid="uid://qjlccl67t0sg" path="res://themes/main_button.tres" id="5_tefeu"]
 [ext_resource type="PackedScene" uid="uid://cd4ehv0x3cpnd" path="res://scenes/resources_panel.tscn" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://b6v8a7ji82kqh" path="res://scenes/inn_scene.tscn" id="7_tipki"]
+[ext_resource type="PackedScene" uid="uid://b3ar6k2htejx3" path="res://scenes/party_scene.tscn" id="8_tipki"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sugp2"]
 content_margin_left = 8.0
@@ -50,23 +51,36 @@ offset_bottom = 267.0
 theme = ExtResource("5_tefeu")
 text = "Inn"
 
+[node name="PartyButton" type="Button" parent="."]
+offset_left = 27.0
+offset_top = 285.0
+offset_right = 209.0
+offset_bottom = 355.0
+theme = ExtResource("5_tefeu")
+text = "Party"
+
 [node name="ResourcesPanel" parent="." instance=ExtResource("7_o6xl0")]
 
 [node name="BattleScene" parent="." instance=ExtResource("3_sugp2")]
 visible = false
-position = Vector2(228, 19)
+position = Vector2(230, 20)
 
 [node name="InnScene" parent="." instance=ExtResource("7_tipki")]
 visible = false
-position = Vector2(228, 19)
+position = Vector2(230, 20)
+
+[node name="PartyScene" parent="." instance=ExtResource("8_tipki")]
+visible = false
+position = Vector2(230, 20)
 
 [node name="Save" type="Button" parent="."]
-offset_left = 29.0
-offset_top = 300.0
-offset_right = 179.0
-offset_bottom = 349.0
+offset_left = 32.0
+offset_top = 564.0
+offset_right = 182.0
+offset_bottom = 613.0
 text = "Save"
 
 [connection signal="pressed" from="ExploreButton" to="." method="_on_explore_pressed"]
 [connection signal="pressed" from="InnButton" to="." method="_on_inn_button_pressed"]
+[connection signal="pressed" from="PartyButton" to="." method="_on_party_button_pressed"]
 [connection signal="pressed" from="Save" to="." method="_on_save_pressed"]

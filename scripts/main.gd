@@ -33,8 +33,16 @@ func _on_inn_button_pressed() -> void:
 		$InnScene.show()
 		$InnScene.calculate_cost()
 
+func _on_party_button_pressed() -> void:
+	if state != "party":
+		if open_scene:
+			open_scene.hide()
+		open_scene = $PartyScene
+		state = "party"
+		$PartyScene.show()
+		$PartyScene.refresh_party()
+	pass
 
 func _on_save_pressed() -> void:
 	PartyManager.save_character(PartyManager.member_1)
 	ResourceManager.save_file()
-	
