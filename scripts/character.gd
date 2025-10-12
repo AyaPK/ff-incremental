@@ -12,6 +12,8 @@ var attack: int
 var defense: int
 var speed: float
 
+var dead: bool = false
+
 var exp_table = [
 	0, 28, 84, 196, 392, 700, 1148, 1764, 2576, 3612,
 	4900, 6468, 8344, 10556, 13132, 16100, 19488, 23324, 27636, 32452,

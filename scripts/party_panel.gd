@@ -1,6 +1,7 @@
 class_name PartyPanel extends PanelContainer
 
 var character: Character
+@onready var anim: AnimationPlayer = $VBoxContainer/PanelContainer/AnimationPlayer
 
 @onready var job_name: Label = $VBoxContainer/JobName
 @onready var image: Sprite2D = $VBoxContainer/PanelContainer/Picture
@@ -19,6 +20,10 @@ func show_party_member() -> void:
 		atk_number.text = str(character.attack)
 		def_number.text = str(character.defense)
 		spd_number.text = str(character.speed)
+		if character.dead:
+			anim.play("down")
+		else:
+			anim.play("default")
 	else:
 		lvl_number.text = ""
 		image.texture = null

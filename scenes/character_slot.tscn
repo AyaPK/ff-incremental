@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dxsrhy7oue3kw"]
+[gd_scene load_steps=17 format=3 uid="uid://dxsrhy7oue3kw"]
 
 [ext_resource type="Shader" uid="uid://wvdou03mgiob" path="res://shaders/dropshadow.gdshader" id="1_ndgm5"]
 [ext_resource type="Texture2D" uid="uid://cxcoctvwpgvpm" path="res://assets/sprites/characters/warrior.png" id="2_jip5g"]
@@ -57,10 +57,27 @@ tracks/0/keys = {
 "values": [0, 1]
 }
 
+[sub_resource type="Animation" id="Animation_nyy3j"]
+resource_name = "down"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jip5g"]
 _data = {
 &"RESET": SubResource("Animation_v8ima"),
 &"attack": SubResource("Animation_jip5g"),
+&"down": SubResource("Animation_nyy3j"),
 &"idle": SubResource("Animation_ndgm5")
 }
 

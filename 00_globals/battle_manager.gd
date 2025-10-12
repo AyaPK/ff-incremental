@@ -41,6 +41,7 @@ func damage_character(dmg: int) -> void:
 	battle_scene.start_timers()
 	
 	if battle_scene.character_slot_1.character.hp <= 0:
+		battle_scene.character_slot_1.character.dead = true
 		party_wipe()
 
 func get_area_name(index: int) -> String:
@@ -54,8 +55,11 @@ func party_wipe() -> void:
 	battle_scene.character_slot_1.character.hp = 0
 	battle_scene.refresh_stats()
 	dead = true
+	battle_scene.character_slot_1.char_anim.play("down")
 	while battle_scene.character_slot_1.character.hp < 5:
 		await get_tree().create_timer(5).timeout
 		battle_scene.character_slot_1.character.hp += 1
 		battle_scene.refresh_stats()
+	battle_scene.character_slot_1.char_anim.play("idle")
 	dead = false
+	battle_scene.character_slot_1.character.dead = false

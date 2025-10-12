@@ -2,6 +2,7 @@ class_name CharacterSlot extends Sprite2D
 
 @onready var move_timer: Timer = $MoveTimer
 @onready var hurt_animation: AnimationPlayer = $HurtAnimation
+@onready var char_anim: AnimationPlayer = $CharAnim
 
 var character: Character
 var timer_display: ProgressBar

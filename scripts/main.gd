@@ -21,6 +21,7 @@ func _on_explore_pressed() -> void:
 		$BattleScene.change_area(BattleManager.get_area_name(BattleManager.area_index))
 		$BattleScene.character_slot_1.move_timer.start()
 		$BattleScene.enemy_slot_1.move_timer.start()
+		$BattleScene.restart_timers()
 		$BattleScene.show()
 
 
