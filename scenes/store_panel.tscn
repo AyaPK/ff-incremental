@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://cokauvgygxo1l"]
+
+[ext_resource type="Texture2D" uid="uid://crvv7xv0u4uel" path="res://assets/UI/Border.png" id="1_1ohk3"]
+[ext_resource type="Script" uid="uid://cs77bf1m8w7xs" path="res://scripts/store_panel.gd" id="1_eiu07"]
+[ext_resource type="Texture2D" uid="uid://m3rs2fup6oh2" path="res://assets/UI/bg.png" id="2_u0o5t"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y403j"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+texture = ExtResource("1_1ohk3")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[node name="StorePanel" type="Node2D"]
+script = ExtResource("1_eiu07")
+
+[node name="Panel" type="PanelContainer" parent="."]
+offset_right = 452.0
+offset_bottom = 285.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_y403j")
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+modulate = Color(0.38170326, 0.38170323, 0.38170323, 1)
+z_index = -1
+layout_mode = 2
+texture = ExtResource("2_u0o5t")
+expand_mode = 1
+
+[node name="ItemsContainer" type="VBoxContainer" parent="."]
+offset_left = 29.0
+offset_top = 18.0
+offset_right = 69.0
+offset_bottom = 58.0
+
+[node name="Button" type="Button" parent="ItemsContainer"]
+layout_mode = 2
+text = "Item1"
+
+[node name="Button2" type="Button" parent="ItemsContainer"]
+layout_mode = 2
+text = "Item2"
+
+[node name="Button3" type="Button" parent="ItemsContainer"]
+layout_mode = 2
+text = "Item3"

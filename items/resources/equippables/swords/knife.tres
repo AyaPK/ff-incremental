@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MainHand" load_steps=2 format=3 uid="uid://ccvudjoptkbl8"]
+
+[ext_resource type="Script" uid="uid://ceor1imwxoc4v" path="res://items/scripts/main_hand.gd" id="1_fx0ss"]
+
+[resource]
+script = ExtResource("1_fx0ss")
+attack = 5
+name = "Knife"
+buy_price = 5
+sell_price = 1
+compatible = 4
+metadata/_custom_type_script = "uid://ceor1imwxoc4v"

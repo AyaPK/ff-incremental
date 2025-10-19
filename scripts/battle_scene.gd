@@ -31,6 +31,7 @@ func run_on_enter() -> void:
 func run_on_exit() -> void:
 	restart_timers()
 	pause_timers()
+	process_mode = Node.PROCESS_MODE_DISABLED
 
 func _ready() -> void:
 	BattleManager.battle_scene = self
