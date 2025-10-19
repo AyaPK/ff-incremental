@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Equippable" load_steps=2 format=3 uid="uid://c2ode5ol6v1c7"]
+
+[ext_resource type="Script" uid="uid://ce1apssk0lmsx" path="res://items/scripts/equippable.gd" id="1_xwk6m"]
+
+[resource]
+script = ExtResource("1_xwk6m")
+rarities = 2
+compatable = 4
+metadata/_custom_type_script = "uid://ce1apssk0lmsx"

@@ -4,15 +4,16 @@ var job: String
 var max_hp: int
 var hp: int
 var image: Texture2D
-
-var level: int
-var experience: int
-
 var attack: int
 var defense: int
 var speed: float
 
+var level: int
+var experience: int
+
 var dead: bool = false
+
+@export var main_hand: MainHand
 
 var exp_table = [
 	0, 28, 84, 196, 392, 700, 1148, 1764, 2576, 3612,

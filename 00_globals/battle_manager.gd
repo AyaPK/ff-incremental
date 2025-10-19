@@ -19,7 +19,7 @@ func load_enemy(enemy_name: String) -> void:
 	battle_scene.spawn_enemy(enemy_resource)
 
 func damage_enemy() -> void:
-	var char_atk: int = battle_scene.character_slot_1.character.attack
+	var char_atk: int = battle_scene.character_slot_1.calculate_attack()
 	var dmg: int = randi_range(char_atk, char_atk*2) - battle_scene.enemy_slot_1.defense
 	dmg = clampi(dmg, 1, dmg)
 	battle_scene.pause_timers()

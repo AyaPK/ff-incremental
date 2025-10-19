@@ -39,3 +39,11 @@ func show_damage(num: int) -> void:
 	var damage_num: DamageNumber = scn.instantiate()
 	damage_num.text = str(num)
 	add_child(damage_num)
+
+func calculate_attack() -> int:
+	var base_attack: int = character.attack
+	var mainhand_increase: int = 0
+	if character.main_hand:
+		mainhand_increase = character.main_hand.attack
+		mainhand_increase = ceili(mainhand_increase * (1+(float(character.main_hand.modifier)/10)))
+	return base_attack + mainhand_increase
