@@ -4,19 +4,17 @@ class_name TownPanel extends ScenePanel
 @onready var area_name: Label = $TextureRect/AreaName
 
 var current_town: Town:
-	get: return load(towns[town_index]["res"])
+	get: return load(towns[BattleManager.town_index]["res"])
 
 var towns: Array[Dictionary] = [
 	{ "name":"cornelia", "res": "res://towns/cornelia.tres"},
+	{ "name":"provoka", "res": "res://towns/pravoka.tres"},
 ]
 var town_index: int
 
 func run_on_enter() -> void:
-	show()
-
-func _ready() -> void:
-	town_index = 0
 	load_town()
+	show()
 
 func load_town() -> void:
 	town_image.texture = current_town.graphic

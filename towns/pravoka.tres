@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Town" load_steps=3 format=3 uid="uid://bqfh2bwsowstr"]
+
+[ext_resource type="Texture2D" uid="uid://c2hnpklnploer" path="res://assets/tiles/pravoka.png" id="1_x8t4k"]
+[ext_resource type="Script" uid="uid://cudhxnsjfi15u" path="res://towns/town.gd" id="2_gipx1"]
+
+[resource]
+script = ExtResource("2_gipx1")
+name = "Pravoka"
+graphic = ExtResource("1_x8t4k")
+metadata/_custom_type_script = "uid://cudhxnsjfi15u"

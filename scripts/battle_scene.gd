@@ -103,7 +103,7 @@ func change_area(new_area_name: String) -> void:
 	character_slot_1.move_timer.start()
 	enemy_slot_1.move_timer.start()
 	$AreaChanger/TextureRect/AreaName.text = res.name
-
+	BattleManager.town_index = res.town_index
 
 func _on_right_button_pressed() -> void:
 	BattleManager.area_index += 1

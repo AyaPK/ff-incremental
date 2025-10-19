@@ -4,11 +4,12 @@ var battle_scene: BattleScene
 var area_index: int = 0
 var dead: bool = false
 
+var town_index: int = 0
+
 var areas: Array[Dictionary] = [
-	{ "name":"nearby_plains", "res":"res://areas/area_resources/nearby_plains.tres" },
+	{ "name":"nearby_plains", "res":"res://areas/area_resources/nearby_plains.tres"},
 	{ "name":"nearby_woods", "res":"res://areas/area_resources/nearby_woods.tres" },
 	{ "name":"chaos_forest", "res":"res://areas/area_resources/chaos_forest.tres" }
-
 ]
 
 func load_player() -> void:
