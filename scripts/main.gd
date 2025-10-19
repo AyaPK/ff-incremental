@@ -1,7 +1,7 @@
 extends Node2D
 
 var state: String
-var open_scene: Node2D
+var open_scene: ScenePanel
 
 func _ready() -> void:
 	BattleManager.load_player()
@@ -43,6 +43,14 @@ func _on_party_button_pressed() -> void:
 		$PartyScene.show()
 		$PartyScene.refresh_party()
 	pass
+
+func _on_town_button_pressed() -> void:
+	if state != "town":
+		if open_scene:
+			open_scene.hide()
+		open_scene = $TownScene
+		state = "town"
+		$TownScene.show()
 
 func _on_save_pressed() -> void:
 	PartyManager.save_characters()

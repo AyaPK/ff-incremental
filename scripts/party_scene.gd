@@ -1,4 +1,4 @@
-class_name PartyScene extends Node2D
+class_name PartyScene extends ScenePanel
 
 @onready var party_panel_1: PartyPanel = $PartyPanel1
 @onready var party_panel_2: PartyPanel = $PartyPanel2

@@ -1,4 +1,4 @@
-class_name BattleScene extends Node2D
+class_name BattleScene extends ScenePanel
 
 const CHARACTER_SLOT = preload("uid://dxsrhy7oue3kw")
 const CHARACTER_STAT_BAR = preload("uid://uik7qxyygjte")

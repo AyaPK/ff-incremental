@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Town" load_steps=3 format=3 uid="uid://cseio5o50mu8l"]
+
+[ext_resource type="Texture2D" uid="uid://dv2q5y75iwrbv" path="res://assets/tiles/cornelia.png" id="1_dg067"]
+[ext_resource type="Script" uid="uid://cudhxnsjfi15u" path="res://towns/town.gd" id="1_eajle"]
+
+[resource]
+script = ExtResource("1_eajle")
+name = "Cornelia"
+graphic = ExtResource("1_dg067")
+metadata/_custom_type_script = "uid://cudhxnsjfi15u"

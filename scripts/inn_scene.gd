@@ -1,4 +1,4 @@
-class_name InnScene extends Node2D
+class_name InnScene extends ScenePanel
 
 @onready var heal: Button = $Heal
 

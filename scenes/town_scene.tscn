@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://fnxn2tdgagob"]
+
+[ext_resource type="Script" uid="uid://cgxjul8oxtya7" path="res://scripts/town_scene.gd" id="1_8ma1e"]
+[ext_resource type="Texture2D" uid="uid://crvv7xv0u4uel" path="res://assets/UI/Border.png" id="2_aoy3b"]
+[ext_resource type="FontFile" uid="uid://cx7qgymunfupm" path="res://assets/fonts/m5x7.ttf" id="4_4k3pf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y403j"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+texture = ExtResource("2_aoy3b")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y403j"]
+load_path = "res://.godot/imported/area_label.png-d790803392e0b1897039c0b91918fc92.ctex"
+
+[node name="TownScene" type="Node2D"]
+script = ExtResource("1_8ma1e")
+
+[node name="Panel" type="PanelContainer" parent="."]
+offset_right = 908.0
+offset_bottom = 511.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_y403j")
+
+[node name="TownImage" type="TextureRect" parent="Panel"]
+unique_name_in_owner = true
+z_index = -1
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.57254905)
+custom_minimum_size = Vector2(400, 0)
+offset_left = 232.0
+offset_top = 16.0
+offset_right = 632.0
+offset_bottom = 72.0
+texture = SubResource("CompressedTexture2D_y403j")
+
+[node name="AreaName" type="Label" parent="TextureRect"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 0
+offset_left = 27.0
+offset_top = 7.0
+offset_right = 427.0
+offset_bottom = 48.0
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7411765)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 11
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("4_4k3pf")
+theme_override_font_sizes/font_size = 50
+text = "Area Name"
+horizontal_alignment = 1
