@@ -5,6 +5,9 @@ class_name PartyScene extends ScenePanel
 @onready var party_panel_3: PartyPanel = $PartyPanel3
 @onready var party_panel_4: PartyPanel = $PartyPanel4
 
+func run_on_enter() -> void:
+	refresh_party()
+
 func refresh_party() -> void:
 	party_panel_1.character = PartyManager.member_1
 	party_panel_1.show_party_member()

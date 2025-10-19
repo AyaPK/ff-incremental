@@ -11,10 +11,13 @@ var towns: Array[Dictionary] = [
 ]
 var town_index: int
 
+func run_on_enter() -> void:
+	show()
+
 func _ready() -> void:
 	town_index = 0
 	load_town()
 
-func load_town():
+func load_town() -> void:
 	town_image.texture = current_town.graphic
 	area_name.text = current_town.name

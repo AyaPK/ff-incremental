@@ -13,44 +13,34 @@ func _process(_delta: float) -> void:
 func _on_explore_pressed() -> void:
 	if state != "explore":
 		if open_scene:
-			open_scene.hide()
+			open_scene.exit()
 		open_scene = $BattleScene
 		state = "explore"
-		$BattleScene.process_mode = Node.PROCESS_MODE_ALWAYS
-		$BattleScene.refresh_stats()
-		$BattleScene.change_area(BattleManager.get_area_name(BattleManager.area_index))
-		$BattleScene.character_slot_1.move_timer.start()
-		$BattleScene.enemy_slot_1.move_timer.start()
-		$BattleScene.restart_timers()
-		$BattleScene.show()
-
+		$BattleScene.enter()
 
 func _on_inn_button_pressed() -> void:
 	if state != "inn":
 		if open_scene:
-			open_scene.hide()
+			open_scene.exit()
 		open_scene = $InnScene
 		state = "inn"
-		$InnScene.show()
-		$InnScene.calculate_cost()
+		$InnScene.enter()
 
 func _on_party_button_pressed() -> void:
 	if state != "party":
 		if open_scene:
-			open_scene.hide()
+			open_scene.exit()
 		open_scene = $PartyScene
 		state = "party"
-		$PartyScene.show()
-		$PartyScene.refresh_party()
-	pass
+		$PartyScene.enter()
 
 func _on_town_button_pressed() -> void:
 	if state != "town":
 		if open_scene:
-			open_scene.hide()
+			open_scene.exit()
 		open_scene = $TownScene
 		state = "town"
-		$TownScene.show()
+		$TownScene.enter()
 
 func _on_save_pressed() -> void:
 	PartyManager.save_characters()

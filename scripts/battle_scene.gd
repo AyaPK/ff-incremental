@@ -20,6 +20,18 @@ var encounter_table: EncounterTable
 @onready var respawn_timer: Timer = $RespawnTimer
 @onready var respawn_bar: TextureProgressBar = $RespawnBar
 
+func run_on_enter() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	refresh_stats()
+	change_area(BattleManager.get_area_name(BattleManager.area_index))
+	character_slot_1.move_timer.start()
+	enemy_slot_1.move_timer.start()
+	restart_timers()
+
+func run_on_exit() -> void:
+	restart_timers()
+	pause_timers()
+
 func _ready() -> void:
 	BattleManager.battle_scene = self
 	respawn_bar.hide()

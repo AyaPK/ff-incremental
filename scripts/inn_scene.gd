@@ -5,6 +5,9 @@ class_name InnScene extends ScenePanel
 var heal_cost: int
 var heal_amount: int
 
+func run_on_enter() -> void:
+	calculate_cost()
+
 func _ready() -> void:
 	pass 
 
