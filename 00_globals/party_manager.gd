@@ -34,7 +34,7 @@ func create_new_character(job: String) -> Character:
 	character.max_hp = 10
 	character.hp = 10
 	character.image = load("res://assets/sprites/characters/"+character.job+".png")
-	character.speed = 1
+	character.speed = 5
 	character.attack = 5
 	character.defense = 5
 	character.level = 1

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cokauvgygxo1l"]
+[gd_scene load_steps=6 format=3 uid="uid://cokauvgygxo1l"]
 
 [ext_resource type="Texture2D" uid="uid://crvv7xv0u4uel" path="res://assets/UI/Border.png" id="1_1ohk3"]
 [ext_resource type="Script" uid="uid://cs77bf1m8w7xs" path="res://scripts/store_panel.gd" id="1_eiu07"]
 [ext_resource type="Texture2D" uid="uid://m3rs2fup6oh2" path="res://assets/UI/bg.png" id="2_u0o5t"]
+[ext_resource type="PackedScene" uid="uid://uvhxf8oyyjyw" path="res://scenes/store_item_panel.tscn" id="4_b6qeh"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y403j"]
 content_margin_left = 8.0
@@ -36,14 +37,14 @@ offset_top = 18.0
 offset_right = 69.0
 offset_bottom = 58.0
 
-[node name="Button" type="Button" parent="ItemsContainer"]
+[node name="StoreItemPanel" parent="ItemsContainer" instance=ExtResource("4_b6qeh")]
 layout_mode = 2
-text = "Item1"
 
-[node name="Button2" type="Button" parent="ItemsContainer"]
+[node name="StoreItemPanel2" parent="ItemsContainer" instance=ExtResource("4_b6qeh")]
 layout_mode = 2
-text = "Item2"
 
-[node name="Button3" type="Button" parent="ItemsContainer"]
+[node name="StoreItemPanel3" parent="ItemsContainer" instance=ExtResource("4_b6qeh")]
 layout_mode = 2
-text = "Item3"
+
+[node name="StoreItemPanel4" parent="ItemsContainer" instance=ExtResource("4_b6qeh")]
+layout_mode = 2
