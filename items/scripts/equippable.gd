@@ -10,9 +10,6 @@ const FLAG_NAMES = ["Fighter", "Black Mage", "Warrior"]
 func compatible_with(job_name: String) -> void:
 	var bit_index = FLAG_NAMES.find(job_name)
 	if bit_index == -1:
-		print("no")
 		return
 	if compatible & (1 << bit_index):
-		print("yes")
 		return
-	print("no")

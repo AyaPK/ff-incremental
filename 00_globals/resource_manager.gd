@@ -4,13 +4,23 @@ const SAVE_PATH := "user://resource.save"
 
 var gp: int
 
+var inventory: Array[Item] = [
+	
+]
+
 func _ready() -> void:
 	if FileAccess.file_exists(SAVE_PATH):
 		load_file()
 
 func save_file() -> void:
+	# serial inventory
+	var inv: Array[String]
+	for item in inventory:
+		inv.append(item.resource_path)
+		
 	var resource_save: Dictionary = {
-		"gp": gp
+		"gp": gp,
+		"inventory": inv,
 	}
 	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	file.store_string(JSON.stringify(resource_save))
@@ -22,3 +32,7 @@ func load_file() -> void:
 	file.close()
 	
 	gp = json_data["gp"]
+	var inv: Array[Item] = []
+	for item in json_data["inventory"]:
+		inv.append(load(item))
+	inventory = inv

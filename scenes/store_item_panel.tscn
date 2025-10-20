@@ -1,34 +1,49 @@
-[gd_scene load_steps=5 format=3 uid="uid://uvhxf8oyyjyw"]
+[gd_scene load_steps=6 format=3 uid="uid://uvhxf8oyyjyw"]
 
-[ext_resource type="Texture2D" uid="uid://mpd06ktr12i3" path="res://assets/UI/Border_storet.png" id="1_ei74w"]
+[ext_resource type="Texture2D" uid="uid://bbhpp24myxm6q" path="res://assets/UI/storeitemborder.png" id="1_i0q38"]
 [ext_resource type="Script" uid="uid://cykmvvo0xbhsv" path="res://scenes/store_item_panel.gd" id="2_i0q38"]
 [ext_resource type="FontFile" uid="uid://cx7qgymunfupm" path="res://assets/fonts/m5x7.ttf" id="3_i0q38"]
+[ext_resource type="Theme" uid="uid://oorkl3pmotqf" path="res://themes/store_item_button.tres" id="4_jucty"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fceus"]
-texture = ExtResource("1_ei74w")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i0q38"]
+texture = ExtResource("1_i0q38")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+modulate_color = Color(0.39607844, 0.39607844, 0.39607844, 0.8862745)
 
 [node name="StoreItemPanel" type="PanelContainer"]
-theme_override_styles/panel = SubResource("StyleBoxTexture_fceus")
+theme_override_styles/panel = SubResource("StyleBoxTexture_i0q38")
 script = ExtResource("2_i0q38")
 
 [node name="StoreItemHbox" type="HBoxContainer" parent="."]
 layout_mode = 2
 
 [node name="ItemName" type="Label" parent="StoreItemHbox"]
+custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_i0q38")
 text = "Item Name"
+horizontal_alignment = 2
+
+[node name="-" type="Label" parent="StoreItemHbox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_i0q38")
+text = "|"
 
 [node name="ItemCost" type="Label" parent="StoreItemHbox"]
+custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_i0q38")
-text = "Item Name"
+text = "999 gold"
 
 [node name="BuyButton" type="Button" parent="StoreItemHbox"]
 layout_mode = 2
+focus_mode = 0
+theme = ExtResource("4_jucty")
 theme_override_fonts/font = ExtResource("3_i0q38")
-text = "Item1"
+theme_override_font_sizes/font_size = 20
+text = "Buy"
+
+[connection signal="pressed" from="StoreItemHbox/BuyButton" to="." method="_on_buy_button_pressed"]

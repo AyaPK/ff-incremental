@@ -11,9 +11,14 @@ func run_on_enter() -> void:
 func refresh_party() -> void:
 	party_panel_1.character = PartyManager.member_1
 	party_panel_1.show_party_member()
-	party_panel_2.character = PartyManager.member_2
-	party_panel_2.show_party_member()
-	party_panel_3.character = PartyManager.member_3
-	party_panel_3.show_party_member()
-	party_panel_4.character = PartyManager.member_4
-	party_panel_4.show_party_member()
+	if PartyManager.member_2:
+		party_panel_2.character = PartyManager.member_2
+		party_panel_2.show_party_member()
+	if PartyManager.member_2:
+		party_panel_3.character = PartyManager.member_3
+		party_panel_3.show_party_member()
+	if PartyManager.member_2:
+		party_panel_4.character = PartyManager.member_4
+		party_panel_4.show_party_member()
+	for item in ResourceManager.inventory:
+		print(item.name)

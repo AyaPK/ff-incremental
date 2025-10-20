@@ -31,3 +31,4 @@ func show_party_member() -> void:
 		atk_number.text = ""
 		def_number.text = ""
 		spd_number.text = ""
+	show()

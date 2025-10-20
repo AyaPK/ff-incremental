@@ -39,18 +39,21 @@ offset_right = 229.0
 offset_bottom = 472.0
 
 [node name="PartyPanel2" parent="." instance=ExtResource("2_ml5gj")]
+visible = false
 offset_left = 239.0
 offset_top = 43.0
 offset_right = 450.0
 offset_bottom = 472.0
 
 [node name="PartyPanel3" parent="." instance=ExtResource("2_ml5gj")]
+visible = false
 offset_left = 459.0
 offset_top = 43.0
 offset_right = 670.0
 offset_bottom = 472.0
 
 [node name="PartyPanel4" parent="." instance=ExtResource("2_ml5gj")]
+visible = false
 offset_left = 678.0
 offset_top = 43.0
 offset_right = 889.0
