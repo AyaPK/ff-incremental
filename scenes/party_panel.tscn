@@ -82,7 +82,7 @@ _data = {
 [node name="PartyPanel" type="PanelContainer"]
 custom_minimum_size = Vector2(211, 359)
 offset_right = 211.0
-offset_bottom = 359.0
+offset_bottom = 416.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_xhvm1")
 script = ExtResource("2_xkgb6")
 
@@ -99,13 +99,15 @@ text = "JobName"
 horizontal_alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 125)
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+size_flags_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xkgb6")
 
 [node name="Picture" type="Sprite2D" parent="VBoxContainer/PanelContainer"]
 material = SubResource("ShaderMaterial_16lye")
-position = Vector2(90, 62)
+position = Vector2(90, 48)
+scale = Vector2(0.8020833, 0.8020833)
 texture = ExtResource("3_e0mto")
 hframes = 6
 frame = 3
@@ -118,8 +120,10 @@ autoplay = "default"
 
 [node name="Level" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="Label" type="Label" parent="VBoxContainer/Level"]
+custom_minimum_size = Vector2(65, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("3_16lye")
@@ -133,13 +137,14 @@ size_flags_horizontal = 3
 theme = ExtResource("3_16lye")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-text = "99999"
-horizontal_alignment = 2
+text = "9999999999999"
 
 [node name="HP" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="Label" type="Label" parent="VBoxContainer/HP"]
+custom_minimum_size = Vector2(65, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("3_16lye")
@@ -154,12 +159,13 @@ theme = ExtResource("3_16lye")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 text = "99999"
-horizontal_alignment = 2
 
 [node name="Attack" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="Label" type="Label" parent="VBoxContainer/Attack"]
+custom_minimum_size = Vector2(65, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("3_16lye")
@@ -174,12 +180,13 @@ theme = ExtResource("3_16lye")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 text = "50"
-horizontal_alignment = 2
 
 [node name="Defense" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="Label" type="Label" parent="VBoxContainer/Defense"]
+custom_minimum_size = Vector2(65, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("3_16lye")
@@ -194,12 +201,13 @@ theme = ExtResource("3_16lye")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 text = "99999"
-horizontal_alignment = 2
 
 [node name="Speed" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="Label" type="Label" parent="VBoxContainer/Speed"]
+custom_minimum_size = Vector2(65, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("3_16lye")
@@ -214,4 +222,81 @@ theme = ExtResource("3_16lye")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 text = "99999"
-horizontal_alignment = 2
+
+[node name="Empty" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_16lye")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+
+[node name="Weap" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/Weap"]
+custom_minimum_size = Vector2(65, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_16lye")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+text = "Weapon"
+
+[node name="Name" type="Label" parent="VBoxContainer/Weap"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_16lye")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+text = "Rapier"
+
+[node name="WeaponButton" type="Button" parent="VBoxContainer/Weap"]
+layout_mode = 2
+text = "x"
+icon_alignment = 2
+
+[node name="Offhand" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/Offhand"]
+custom_minimum_size = Vector2(65, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_16lye")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+text = "Offhand"
+
+[node name="Name" type="Label" parent="VBoxContainer/Offhand"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_16lye")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+text = "Shield"
+
+[node name="OffhandButton" type="Button" parent="VBoxContainer/Offhand"]
+layout_mode = 2
+text = "x"
+icon_alignment = 2
+
+[node name="Armour" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Name" type="Label" parent="VBoxContainer/Armour"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_16lye")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+text = "Majestic"
+
+[node name="ArmourButton" type="Button" parent="VBoxContainer/Armour"]
+layout_mode = 2
+text = "x"
+icon_alignment = 2
+
+[connection signal="pressed" from="VBoxContainer/Weap/WeaponButton" to="." method="_on_weapon_button_pressed"]

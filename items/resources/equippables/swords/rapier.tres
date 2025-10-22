@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="MainHand" load_steps=2 format=3 uid="uid://du6xbfk3v6h5j"]
+[gd_resource type="Resource" script_class="MainHand" load_steps=3 format=3 uid="uid://du6xbfk3v6h5j"]
 
 [ext_resource type="Script" uid="uid://ceor1imwxoc4v" path="res://items/scripts/main_hand.gd" id="1_hoakx"]
+[ext_resource type="Texture2D" uid="uid://dymah2gdnev55" path="res://assets/items/weapons/rapier.webp" id="2_sa480"]
 
 [resource]
 script = ExtResource("1_hoakx")
 attack = 9
+sprite = ExtResource("2_sa480")
+compatible = 4
 name = "Rapier"
 buy_price = 10
 sell_price = 2
-compatible = 4
 metadata/_custom_type_script = "uid://ceor1imwxoc4v"

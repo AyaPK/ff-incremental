@@ -14,6 +14,8 @@ var experience: int
 var dead: bool = false
 
 @export var main_hand: MainHand
+@export var off_hand: Equippable
+@export var armour: Equippable
 
 var exp_table = [
 	0, 28, 84, 196, 392, 700, 1148, 1764, 2576, 3612,

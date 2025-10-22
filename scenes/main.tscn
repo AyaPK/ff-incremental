@@ -89,6 +89,8 @@ layout_mode = 2
 theme = ExtResource("5_tefeu")
 text = "Save"
 
+[node name="BackpackScene" type="Node2D" parent="."]
+
 [connection signal="pressed" from="VBoxContainer/ExploreButton" to="." method="_on_explore_pressed"]
 [connection signal="pressed" from="VBoxContainer/InnButton" to="." method="_on_inn_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/PartyButton" to="." method="_on_party_button_pressed"]

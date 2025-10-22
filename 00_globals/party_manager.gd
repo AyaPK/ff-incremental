@@ -10,6 +10,7 @@ var member_4: Character
 func _ready() -> void:
 	if FileAccess.file_exists(SAVE_PATH):
 		load_characters()
+		#member_1.main_hand = load("res://items/resources/equippables/swords/knife.tres")
 	else:
 		member_1 = create_new_character("warrior")
 
@@ -51,7 +52,8 @@ func save_characters() -> void:
 			"attack": member_1.attack,
 			"defense": member_1.defense,
 			"level": member_1.level,
-			"experience": member_1.experience
+			"experience": member_1.experience,
+			"main_hand": member_1.main_hand.resource_path if member_1.main_hand else "",
 		}
 	}
 	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
@@ -72,4 +74,6 @@ func load_characters() -> void:
 	member_1.defense = json_data["1"]["defense"]
 	member_1.level = json_data["1"]["level"]
 	member_1.experience = json_data["1"]["experience"]
+	if json_data["1"]["main_hand"]:
+		member_1.main_hand = load(json_data["1"]["main_hand"])
 	member_1.image = load("res://assets/sprites/characters/"+member_1.job+".png")
