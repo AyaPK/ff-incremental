@@ -42,6 +42,15 @@ func _on_town_button_pressed() -> void:
 		state = "town"
 		$TownScene.enter()
 
+func _on_bag_button_pressed() -> void:
+	if state != "bag":
+		if open_scene:
+			open_scene.exit()
+		open_scene = $BagScene
+		state = "bag"
+		$BagScene.enter()
+
+
 func _on_save_pressed() -> void:
 	PartyManager.save_characters()
 	ResourceManager.save_file()

@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3awdi8tg2wkq"]
+
+[ext_resource type="Texture2D" uid="uid://crvv7xv0u4uel" path="res://assets/UI/Border.png" id="1_c1d0t"]
+[ext_resource type="Script" uid="uid://cbrc2m3s2n7b1" path="res://scripts/bag_scene.gd" id="1_jech4"]
+[ext_resource type="Texture2D" uid="uid://dymah2gdnev55" path="res://assets/items/weapons/rapier.webp" id="2_jech4"]
+[ext_resource type="PackedScene" uid="uid://b0eovaumvtjr2" path="res://scenes/bag_item_display.tscn" id="3_jnr4o"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tx4g7"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+texture = ExtResource("1_c1d0t")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[node name="BagScene" type="Node2D"]
+script = ExtResource("1_jech4")
+
+[node name="Panel" type="PanelContainer" parent="."]
+offset_right = 908.0
+offset_bottom = 511.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_tx4g7")
+
+[node name="BagPanel" type="HFlowContainer" parent="Panel"]
+custom_minimum_size = Vector2(870, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="BagItemDisplay" parent="Panel/BagPanel" instance=ExtResource("3_jnr4o")]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/BagPanel"]
+layout_mode = 2
+texture = ExtResource("2_jech4")
+
+[node name="TextureRect3" type="TextureRect" parent="Panel/BagPanel"]
+layout_mode = 2
+texture = ExtResource("2_jech4")
+
+[node name="TextureRect4" type="TextureRect" parent="Panel/BagPanel"]
+layout_mode = 2
+texture = ExtResource("2_jech4")
+
+[node name="TextureRect5" type="TextureRect" parent="Panel/BagPanel"]
+layout_mode = 2
+texture = ExtResource("2_jech4")
+
+[node name="TextureRect6" type="TextureRect" parent="Panel/BagPanel"]
+layout_mode = 2
+texture = ExtResource("2_jech4")

@@ -20,5 +20,3 @@ func refresh_party() -> void:
 	if PartyManager.member_2:
 		party_panel_4.character = PartyManager.member_4
 		party_panel_4.show_party_member()
-	for item in ResourceManager.inventory:
-		print(item.name)
