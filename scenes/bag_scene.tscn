@@ -1,9 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3awdi8tg2wkq"]
+[gd_scene load_steps=8 format=3 uid="uid://d3awdi8tg2wkq"]
 
 [ext_resource type="Texture2D" uid="uid://crvv7xv0u4uel" path="res://assets/UI/Border.png" id="1_c1d0t"]
 [ext_resource type="Script" uid="uid://cbrc2m3s2n7b1" path="res://scripts/bag_scene.gd" id="1_jech4"]
 [ext_resource type="Texture2D" uid="uid://dymah2gdnev55" path="res://assets/items/weapons/rapier.webp" id="2_jech4"]
 [ext_resource type="PackedScene" uid="uid://b0eovaumvtjr2" path="res://scenes/bag_item_display.tscn" id="3_jnr4o"]
+
+[sub_resource type="Gradient" id="Gradient_jnr4o"]
+colors = PackedColorArray(0.31061712, 0.31061712, 0.3106171, 1, 0.65012825, 0.6501283, 0.65012825, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d28oq"]
+gradient = SubResource("Gradient_jnr4o")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tx4g7"]
 content_margin_left = 16.0
@@ -18,6 +26,14 @@ texture_margin_bottom = 16.0
 
 [node name="BagScene" type="Node2D"]
 script = ExtResource("1_jech4")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.47397572, 0.47397572, 0.47397572, 1)
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 904.0
+offset_bottom = 502.0
+texture = SubResource("GradientTexture2D_d28oq")
 
 [node name="Panel" type="PanelContainer" parent="."]
 offset_right = 908.0

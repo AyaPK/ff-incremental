@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c3t5u4021su15"]
+[gd_scene load_steps=13 format=3 uid="uid://c3t5u4021su15"]
 
 [ext_resource type="Texture2D" uid="uid://crvv7xv0u4uel" path="res://assets/UI/Border.png" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://4vaeayaqtitf" path="res://scripts/main.gd" id="1_jyhfs"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://fnxn2tdgagob" path="res://scenes/town_scene.tscn" id="8_85g3d"]
 [ext_resource type="PackedScene" uid="uid://b3ar6k2htejx3" path="res://scenes/party_scene.tscn" id="8_tipki"]
 [ext_resource type="PackedScene" uid="uid://d3awdi8tg2wkq" path="res://scenes/bag_scene.tscn" id="8_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://sn5rarxhbhxx" path="res://scenes/dialog_panel.tscn" id="11_ya4ey"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sugp2"]
 content_margin_left = 8.0
@@ -98,6 +99,9 @@ text = "Bag"
 layout_mode = 2
 theme = ExtResource("5_tefeu")
 text = "Save"
+
+[node name="DialogPanel" parent="." instance=ExtResource("11_ya4ey")]
+position = Vector2(232, 530)
 
 [connection signal="pressed" from="VBoxContainer/ExploreButton" to="." method="_on_explore_pressed"]
 [connection signal="pressed" from="VBoxContainer/InnButton" to="." method="_on_inn_button_pressed"]

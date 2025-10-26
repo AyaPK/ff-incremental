@@ -21,6 +21,7 @@ PartyManager="*res://00_globals/party_manager.gd"
 BattleManager="*res://00_globals/battle_manager.gd"
 EnemyIndex="*res://00_globals/enemy_index.gd"
 ResourceManager="*res://00_globals/resource_manager.gd"
+DialogueManager="*res://00_globals/dialogue_manager.gd"
 
 [display]
 

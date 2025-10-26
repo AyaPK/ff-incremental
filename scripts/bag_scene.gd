@@ -13,9 +13,12 @@ func run_on_exit() -> void:
 
 func show_items() -> void:
 	clear_items()
-	for item: Item in ResourceManager.inventory:
+	for x in range(ResourceManager.inventory.size()):
+		var item: Item = ResourceManager.inventory[x]
 		var panel: BagItemDisplay = BAG_ITEM_DISPLAY.instantiate()
 		panel.item = item
+		panel.bag = self
+		panel.bag_index = x
 		bag_panel.add_child(panel)
 
 	

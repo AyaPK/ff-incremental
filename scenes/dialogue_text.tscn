@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://co7uds00xf3xl"]
+
+[ext_resource type="Theme" uid="uid://b0c7mxh1wri65" path="res://themes/stat_font.tres" id="1_m3n25"]
+[ext_resource type="Script" uid="uid://bp5fmgxqrsb67" path="res://scripts/dialogue_text.gd" id="2_85mj8"]
+
+[node name="DialogueText" type="Label"]
+offset_left = 4.0
+offset_right = 200.0
+offset_bottom = 26.0
+theme = ExtResource("1_m3n25")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.32156864)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 5
+text = "The Goblin Attacks!"
+script = ExtResource("2_85mj8")
+
+[node name="OnScreen" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(8, 16)
+rect = Rect2(-10, -10, 204, 24)
+
+[connection signal="screen_exited" from="OnScreen" to="." method="_on_on_screen_screen_exited"]

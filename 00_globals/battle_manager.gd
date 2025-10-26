@@ -23,6 +23,7 @@ func damage_enemy() -> void:
 	var char_atk: int = battle_scene.character_slot_1.calculate_attack()
 	var dmg: int = randi_range(char_atk, char_atk*2) - battle_scene.enemy_slot_1.defense
 	dmg = clampi(dmg, 1, dmg)
+	DialogueManager.push_text("The "+battle_scene.character_slot_1.character.job.capitalize()+" attacks!")
 	battle_scene.pause_timers()
 	battle_scene.enemy_slot_1.hp -= dmg
 	battle_scene.enemy_slot_1.show_damage(dmg)
@@ -35,6 +36,7 @@ func damage_enemy() -> void:
 
 func damage_character(dmg: int) -> void:
 	battle_scene.pause_timers()
+	DialogueManager.push_text("The "+battle_scene.enemy_slot_1.enemy_name+" attacks!")
 	battle_scene.character_slot_1.hurt_animation.play("hurt")
 	battle_scene.character_slot_1.show_damage(dmg)
 	battle_scene.character_slot_1.character.hp -= dmg

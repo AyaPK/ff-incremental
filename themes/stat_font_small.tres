@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c6optk2qhfidc"]
+
+[ext_resource type="FontFile" uid="uid://cx7qgymunfupm" path="res://assets/fonts/m5x7.ttf" id="1_de8tg"]
+
+[resource]
+default_font = ExtResource("1_de8tg")
+default_font_size = 23

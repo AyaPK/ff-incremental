@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0eovaumvtjr2"]
+[gd_scene load_steps=6 format=3 uid="uid://b0eovaumvtjr2"]
 
 [ext_resource type="Texture2D" uid="uid://bbhpp24myxm6q" path="res://assets/UI/storeitemborder.png" id="1_8cdqu"]
 [ext_resource type="Texture2D" uid="uid://dymah2gdnev55" path="res://assets/items/weapons/rapier.webp" id="2_fqnp1"]
 [ext_resource type="Script" uid="uid://cbftbjfog12mm" path="res://scripts/bag_item_display.gd" id="2_plqnc"]
+[ext_resource type="Theme" uid="uid://oorkl3pmotqf" path="res://themes/store_item_button.tres" id="4_plqnc"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d28oq"]
 content_margin_left = 8.0
@@ -17,11 +18,27 @@ texture_margin_bottom = 8.0
 modulate_color = Color(0.41568628, 0.41568628, 0.7411765, 1)
 
 [node name="BagItemDisplay" type="PanelContainer"]
+custom_minimum_size = Vector2(85, 0)
 theme_override_styles/panel = SubResource("StyleBoxTexture_d28oq")
 script = ExtResource("2_plqnc")
 
-[node name="image" type="TextureRect" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="image" type="TextureRect" parent="VBoxContainer"]
 custom_minimum_size = Vector2(42, 42)
 layout_mode = 2
 texture = ExtResource("2_fqnp1")
 stretch_mode = 3
+
+[node name="SellButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_plqnc")
+theme_override_font_sizes/font_size = 14
+text = "Sell"
+
+[connection signal="pressed" from="VBoxContainer/SellButton" to="." method="_on_sell_button_pressed"]
