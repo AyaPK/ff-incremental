@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://sn5rarxhbhxx"]
+[gd_scene load_steps=7 format=3 uid="uid://sn5rarxhbhxx"]
 
 [ext_resource type="Texture2D" uid="uid://crvv7xv0u4uel" path="res://assets/UI/Border.png" id="1_ainys"]
 [ext_resource type="Script" uid="uid://bix1t4cgj71qu" path="res://scripts/dialog_panel.gd" id="1_rbol1"]
+[ext_resource type="PackedScene" uid="uid://co7uds00xf3xl" path="res://scenes/dialogue_text.tscn" id="3_u10g5"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eb6dy"]
 content_margin_left = 8.0
@@ -59,3 +60,12 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 0
 alignment = 2
+
+[node name="DialogueText" parent="Panel/SubViewportContainer/SubViewport/TextBox" instance=ExtResource("3_u10g5")]
+layout_mode = 2
+
+[node name="DialogueText2" parent="Panel/SubViewportContainer/SubViewport/TextBox" instance=ExtResource("3_u10g5")]
+layout_mode = 2
+
+[node name="DialogueText3" parent="Panel/SubViewportContainer/SubViewport/TextBox" instance=ExtResource("3_u10g5")]
+layout_mode = 2

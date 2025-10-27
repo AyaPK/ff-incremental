@@ -7,6 +7,8 @@ var member_2: Character
 var member_3: Character
 var member_4: Character
 
+signal saved
+
 func _ready() -> void:
 	if FileAccess.file_exists(SAVE_PATH):
 		load_characters()
@@ -59,6 +61,7 @@ func save_characters() -> void:
 	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	file.store_string(JSON.stringify(character_save))
 	file.close()
+	saved.emit()
 
 func load_characters() -> void:
 	var file := FileAccess.open(SAVE_PATH, FileAccess.READ)

@@ -17,4 +17,4 @@ func _on_buy_button_pressed() -> void:
 	if ResourceManager.gp >= item.buy_price:
 		ResourceManager.gp -= item.buy_price
 		ResourceManager.inventory.append(item)
-		DialogueManager.push_text("Bought "+item.name+"!")
+		DialogueManager.push_text("Bought "+item.coloured_name+" for "+str(item.buy_price)+" gp!")

@@ -4,3 +4,6 @@ class_name MainHand extends Equippable
 @export var sprite: Texture2D
 
 @export var modifier: int = 0
+
+func is_mainhand() -> void:
+	pass

@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3awdi8tg2wkq"]
+[gd_scene load_steps=10 format=3 uid="uid://d3awdi8tg2wkq"]
 
 [ext_resource type="Texture2D" uid="uid://crvv7xv0u4uel" path="res://assets/UI/Border.png" id="1_c1d0t"]
 [ext_resource type="Script" uid="uid://cbrc2m3s2n7b1" path="res://scripts/bag_scene.gd" id="1_jech4"]
-[ext_resource type="Texture2D" uid="uid://dymah2gdnev55" path="res://assets/items/weapons/rapier.webp" id="2_jech4"]
 [ext_resource type="PackedScene" uid="uid://b0eovaumvtjr2" path="res://scenes/bag_item_display.tscn" id="3_jnr4o"]
+[ext_resource type="Theme" uid="uid://qjlccl67t0sg" path="res://themes/main_button.tres" id="4_jnr4o"]
+[ext_resource type="Texture2D" uid="uid://c7cnld4x0jvyq" path="res://assets/UI/area_label.png" id="5_lk5v8"]
+[ext_resource type="FontFile" uid="uid://cx7qgymunfupm" path="res://assets/fonts/m5x7.ttf" id="6_j83nh"]
 
 [sub_resource type="Gradient" id="Gradient_jnr4o"]
 colors = PackedColorArray(0.31061712, 0.31061712, 0.3106171, 1, 0.65012825, 0.6501283, 0.65012825, 1)
@@ -40,31 +42,85 @@ offset_right = 908.0
 offset_bottom = 511.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_tx4g7")
 
-[node name="BagPanel" type="HFlowContainer" parent="Panel"]
-custom_minimum_size = Vector2(870, 0)
-layout_mode = 2
+[node name="ItemShowPanel" type="PanelContainer" parent="."]
+offset_left = 201.0
+offset_top = 21.0
+offset_right = 891.0
+offset_bottom = 495.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_tx4g7")
+
+[node name="BagPanel" type="HFlowContainer" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(600, 0)
+offset_left = 234.0
+offset_top = 94.0
+offset_right = 883.0
+offset_bottom = 219.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="BagItemDisplay" parent="Panel/BagPanel" instance=ExtResource("3_jnr4o")]
+[node name="BagItemDisplay" parent="BagPanel" instance=ExtResource("3_jnr4o")]
 layout_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="Panel/BagPanel"]
-layout_mode = 2
-texture = ExtResource("2_jech4")
+[node name="BagButtons" type="VBoxContainer" parent="."]
+offset_left = 19.0
+offset_top = 21.0
+offset_right = 193.0
+offset_bottom = 237.0
 
-[node name="TextureRect3" type="TextureRect" parent="Panel/BagPanel"]
+[node name="WeaponsButton" type="Button" parent="BagButtons"]
 layout_mode = 2
-texture = ExtResource("2_jech4")
+theme = ExtResource("4_jnr4o")
+theme_override_font_sizes/font_size = 35
+text = "Weapons"
 
-[node name="TextureRect4" type="TextureRect" parent="Panel/BagPanel"]
+[node name="ArmourButton" type="Button" parent="BagButtons"]
 layout_mode = 2
-texture = ExtResource("2_jech4")
+theme = ExtResource("4_jnr4o")
+theme_override_font_sizes/font_size = 35
+text = "Armour"
 
-[node name="TextureRect5" type="TextureRect" parent="Panel/BagPanel"]
+[node name="ConsumablesButton" type="Button" parent="BagButtons"]
 layout_mode = 2
-texture = ExtResource("2_jech4")
+theme = ExtResource("4_jnr4o")
+theme_override_font_sizes/font_size = 35
+text = "Consumables"
 
-[node name="TextureRect6" type="TextureRect" parent="Panel/BagPanel"]
+[node name="KeyItemsButton" type="Button" parent="BagButtons"]
 layout_mode = 2
-texture = ExtResource("2_jech4")
+theme = ExtResource("4_jnr4o")
+theme_override_font_sizes/font_size = 35
+text = "Key Items"
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.29803923)
+custom_minimum_size = Vector2(400, 0)
+offset_left = 343.0
+offset_top = 33.0
+offset_right = 743.0
+offset_bottom = 89.0
+texture = ExtResource("5_lk5v8")
+
+[node name="PanelName" type="Label" parent="TextureRect2"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 0
+offset_left = 8.0
+offset_top = -1.0
+offset_right = 408.0
+offset_bottom = 40.0
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7411765)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 11
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_j83nh")
+theme_override_font_sizes/font_size = 50
+text = "Panel Name"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="BagButtons/WeaponsButton" to="." method="_on_weapons_button_pressed"]
+[connection signal="pressed" from="BagButtons/ArmourButton" to="." method="_on_armour_button_pressed"]
+[connection signal="pressed" from="BagButtons/ConsumablesButton" to="." method="_on_consumables_button_pressed"]
+[connection signal="pressed" from="BagButtons/KeyItemsButton" to="." method="_on_key_items_button_pressed"]

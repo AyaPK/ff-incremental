@@ -52,5 +52,7 @@ func _on_bag_button_pressed() -> void:
 
 
 func _on_save_pressed() -> void:
+	DialogueManager.push_text("Saving, please don't close the game...")
 	PartyManager.save_characters()
 	ResourceManager.save_file()
+	DialogueManager.push_text("Game saved!")

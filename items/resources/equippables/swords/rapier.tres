@@ -7,6 +7,7 @@
 script = ExtResource("1_hoakx")
 attack = 9
 sprite = ExtResource("2_sa480")
+rarities = 5
 compatible = 4
 name = "Rapier"
 buy_price = 10

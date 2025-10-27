@@ -4,9 +4,20 @@ const SAVE_PATH := "user://resource.save"
 
 var gp: int
 
+signal saved
+
 var inventory: Array[Item] = [
 	
 ]
+
+var rarity_colours: Dictionary = {
+	0: Color.DIM_GRAY,
+	1: Color.GREEN,
+	2: Color.BLUE,
+	3: Color.PURPLE,
+	4: Color.GOLD,
+	5: Color.AQUA
+}
 
 func _ready() -> void:
 	if FileAccess.file_exists(SAVE_PATH):
@@ -25,6 +36,7 @@ func save_file() -> void:
 	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	file.store_string(JSON.stringify(resource_save))
 	file.close()
+	saved.emit()
 
 func load_file() -> void:
 	var file := FileAccess.open(SAVE_PATH, FileAccess.READ)
@@ -36,3 +48,10 @@ func load_file() -> void:
 	for item in json_data["inventory"]:
 		inv.append(load(item))
 	inventory = inv
+
+func get_all_weapons() -> Array[Equippable]:
+	var weapons: Array[Equippable] = []
+	for i in inventory:
+		if i.has_method("is_mainhand"):
+			weapons.append(i)
+	return weapons
