@@ -59,6 +59,7 @@ func party_wipe() -> void:
 	battle_scene.refresh_stats()
 	dead = true
 	battle_scene.character_slot_1.char_anim.play("down")
+	DialogueManager.push_text("You were defeated...")
 	while battle_scene.character_slot_1.character.hp < 5:
 		await get_tree().create_timer(5).timeout
 		battle_scene.character_slot_1.character.hp += 1
@@ -66,3 +67,4 @@ func party_wipe() -> void:
 	battle_scene.character_slot_1.char_anim.play("idle")
 	dead = false
 	battle_scene.character_slot_1.character.dead = false
+	

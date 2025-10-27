@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="WeaponStore" load_steps=5 format=3 uid="uid://bwuowrraylbt3"]
 
-[ext_resource type="Script" uid="uid://ce1apssk0lmsx" path="res://items/scripts/equippable.gd" id="1_da8q0"]
+[ext_resource type="Script" uid="uid://ctcrttnlgslrl" path="res://items/scripts/item.gd" id="1_7b8mb"]
 [ext_resource type="Resource" uid="uid://ccvudjoptkbl8" path="res://items/resources/equippables/swords/knife.tres" id="2_7b8mb"]
 [ext_resource type="Script" uid="uid://drkwjuj3stasg" path="res://towns/stores/weapon_store.gd" id="2_42vk7"]
 [ext_resource type="Resource" uid="uid://du6xbfk3v6h5j" path="res://items/resources/equippables/swords/rapier.tres" id="3_wr5o5"]
 
 [resource]
 script = ExtResource("2_42vk7")
-buyables = Array[ExtResource("1_da8q0")]([ExtResource("2_7b8mb"), ExtResource("3_wr5o5")])
+buyables = Array[ExtResource("1_7b8mb")]([ExtResource("2_7b8mb"), ExtResource("3_wr5o5"), ExtResource("2_7b8mb"), ExtResource("2_7b8mb"), ExtResource("2_7b8mb"), ExtResource("3_wr5o5"), ExtResource("2_7b8mb")])
 metadata/_custom_type_script = "uid://drkwjuj3stasg"

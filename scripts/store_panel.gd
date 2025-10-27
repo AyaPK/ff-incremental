@@ -2,7 +2,7 @@ class_name StorePanel extends Node2D
 
 var store_resource: Store
 
-@onready var items_container: VBoxContainer = $ItemsContainer
+@onready var items_container: VFlowContainer = $ItemsContainer
 
 const STORE_ITEM_PANEL = preload("uid://uvhxf8oyyjyw")
 

@@ -43,6 +43,7 @@ func kill() -> void:
 	await hurt_animation.animation_finished
 	ResourceManager.gp += enemy_resource.gp_drop
 	PartyManager.member_1.add_experience(enemy_resource.exp_drop)
+	DialogueManager.push_text("The [color=red]"+enemy_name+"[/color] was defeated!")
 	queue_free()
 
 func _on_move_timer_timeout() -> void:

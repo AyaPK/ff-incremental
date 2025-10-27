@@ -5,8 +5,8 @@
 
 [node name="DialogueText" type="RichTextLabel"]
 custom_minimum_size = Vector2(120, 30)
-offset_left = 4.0
-offset_right = 544.0
+offset_left = 1.0
+offset_right = 541.0
 offset_bottom = 30.0
 theme = ExtResource("1_m3n25")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -20,7 +20,7 @@ text = "The [color=green]goblin[/color] attacks!!!"
 script = ExtResource("2_85mj8")
 
 [node name="OnScreen" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(8, 16)
+position = Vector2(10, 16)
 rect = Rect2(-10, -10, 204, 24)
 
 [connection signal="screen_exited" from="OnScreen" to="." method="_on_on_screen_screen_exited"]
