@@ -46,4 +46,11 @@ theme = ExtResource("4_plqnc")
 theme_override_font_sizes/font_size = 14
 text = "Sell"
 
+[node name="UsageButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_plqnc")
+theme_override_font_sizes/font_size = 14
+text = "Equip"
+
 [connection signal="pressed" from="VBoxContainer/SellButton" to="." method="_on_sell_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/UsageButton" to="." method="_on_equip_button_pressed"]

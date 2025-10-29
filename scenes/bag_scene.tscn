@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d3awdi8tg2wkq"]
+[gd_scene load_steps=14 format=3 uid="uid://d3awdi8tg2wkq"]
 
 [ext_resource type="Texture2D" uid="uid://crvv7xv0u4uel" path="res://assets/UI/Border.png" id="1_c1d0t"]
 [ext_resource type="Script" uid="uid://cbrc2m3s2n7b1" path="res://scripts/bag_scene.gd" id="1_jech4"]
@@ -26,6 +26,18 @@ texture_margin_top = 16.0
 texture_margin_right = 16.0
 texture_margin_bottom = 16.0
 
+[sub_resource type="Theme" id="Theme_lk5v8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lk5v8"]
+bg_color = Color(0, 0.41140696, 0.3589519, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j83nh"]
+bg_color = Color(9.866804e-07, 0.47153926, 0.37576118, 1)
+
+[sub_resource type="Theme" id="Theme_asw2k"]
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_lk5v8")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_j83nh")
+
 [node name="BagScene" type="Node2D"]
 script = ExtResource("1_jech4")
 
@@ -49,17 +61,107 @@ offset_right = 891.0
 offset_bottom = 495.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_tx4g7")
 
-[node name="BagPanel" type="HFlowContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 219.0
+offset_top = 96.0
+offset_right = 877.0
+offset_bottom = 481.0
+theme = SubResource("Theme_lk5v8")
+horizontal_scroll_mode = 0
+
+[node name="BagPanel" type="HFlowContainer" parent="ScrollContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(600, 0)
-offset_left = 234.0
-offset_top = 94.0
-offset_right = 883.0
-offset_bottom = 219.0
+custom_minimum_size = Vector2(650, 0)
+layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme = SubResource("Theme_asw2k")
 
-[node name="BagItemDisplay" parent="BagPanel" instance=ExtResource("3_jnr4o")]
+[node name="BagItemDisplay" parent="ScrollContainer/BagPanel" instance=ExtResource("3_jnr4o")]
+layout_mode = 2
+
+[node name="BagItemDisplay2" parent="ScrollContainer/BagPanel" instance=ExtResource("3_jnr4o")]
+layout_mode = 2
+
+[node name="BagItemDisplay3" parent="ScrollContainer/BagPanel" instance=ExtResource("3_jnr4o")]
+layout_mode = 2
+
+[node name="BagItemDisplay4" parent="ScrollContainer/BagPanel" instance=ExtResource("3_jnr4o")]
+layout_mode = 2
+
+[node name="BagItemDisplay5" parent="ScrollContainer/BagPanel" instance=ExtResource("3_jnr4o")]
+layout_mode = 2
+
+[node name="BagItemDisplay6" parent="ScrollContainer/BagPanel" instance=ExtResource("3_jnr4o")]
+layout_mode = 2
+
+[node name="BagItemDisplay7" parent="ScrollContainer/BagPanel" instance=ExtResource("3_jnr4o")]
+layout_mode = 2
+
+[node name="BagItemDisplay8" parent="ScrollContainer/BagPanel" instance=ExtResource("3_jnr4o")]
+layout_mode = 2
+
+[node name="BagItemDisplay9" parent="ScrollContainer/BagPanel" instance=ExtResource("3_jnr4o")]
+layout_mode = 2
+
+[node name="BagItemDisplay10" parent="ScrollContainer/BagPanel" instance=ExtResource("3_jnr4o")]
+layout_mode = 2
+
+[node name="BagItemDisplay11" parent="ScrollContainer/BagPanel" instance=ExtResource("3_jnr4o")]
+layout_mode = 2
+
+[node name="BagItemDisplay12" parent="ScrollContainer/BagPanel" instance=ExtResource("3_jnr4o")]
+layout_mode = 2
+
+[node name="BagItemDisplay13" parent="ScrollContainer/BagPanel" instance=ExtResource("3_jnr4o")]
+layout_mode = 2
+
+[node name="BagItemDisplay14" parent="ScrollContainer/BagPanel" instance=ExtResource("3_jnr4o")]
+layout_mode = 2
+
+[node name="BagItemDisplay15" parent="ScrollContainer/BagPanel" instance=ExtResource("3_jnr4o")]
+layout_mode = 2
+
+[node name="BagItemDisplay16" parent="ScrollContainer/BagPanel" instance=ExtResource("3_jnr4o")]
+layout_mode = 2
+
+[node name="BagItemDisplay17" parent="ScrollContainer/BagPanel" instance=ExtResource("3_jnr4o")]
+layout_mode = 2
+
+[node name="BagItemDisplay18" parent="ScrollContainer/BagPanel" instance=ExtResource("3_jnr4o")]
+layout_mode = 2
+
+[node name="BagItemDisplay19" parent="ScrollContainer/BagPanel" instance=ExtResource("3_jnr4o")]
+layout_mode = 2
+
+[node name="BagItemDisplay20" parent="ScrollContainer/BagPanel" instance=ExtResource("3_jnr4o")]
+layout_mode = 2
+
+[node name="BagItemDisplay21" parent="ScrollContainer/BagPanel" instance=ExtResource("3_jnr4o")]
+layout_mode = 2
+
+[node name="BagItemDisplay22" parent="ScrollContainer/BagPanel" instance=ExtResource("3_jnr4o")]
+layout_mode = 2
+
+[node name="BagItemDisplay23" parent="ScrollContainer/BagPanel" instance=ExtResource("3_jnr4o")]
+layout_mode = 2
+
+[node name="BagItemDisplay24" parent="ScrollContainer/BagPanel" instance=ExtResource("3_jnr4o")]
+layout_mode = 2
+
+[node name="BagItemDisplay25" parent="ScrollContainer/BagPanel" instance=ExtResource("3_jnr4o")]
+layout_mode = 2
+
+[node name="BagItemDisplay26" parent="ScrollContainer/BagPanel" instance=ExtResource("3_jnr4o")]
+layout_mode = 2
+
+[node name="BagItemDisplay27" parent="ScrollContainer/BagPanel" instance=ExtResource("3_jnr4o")]
+layout_mode = 2
+
+[node name="BagItemDisplay28" parent="ScrollContainer/BagPanel" instance=ExtResource("3_jnr4o")]
+layout_mode = 2
+
+[node name="BagItemDisplay29" parent="ScrollContainer/BagPanel" instance=ExtResource("3_jnr4o")]
 layout_mode = 2
 
 [node name="BagButtons" type="VBoxContainer" parent="."]

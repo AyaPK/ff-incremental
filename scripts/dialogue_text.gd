@@ -6,5 +6,5 @@ func _on_on_screen_screen_exited() -> void:
 func _ready() -> void:
 	visible_characters = 0
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	visible_characters += 2

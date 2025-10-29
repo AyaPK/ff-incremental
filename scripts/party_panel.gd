@@ -20,7 +20,7 @@ func show_party_member() -> void:
 		lvl_number.text = str(character.level)
 		image.texture = character.image
 		hp_number.text = str(character.hp)+"/"+str(character.max_hp)
-		atk_number.text = str(character.attack)
+		atk_number.text = str(character.attack + (character.main_hand.attack if character.main_hand else 0))
 		def_number.text = str(character.defense)
 		spd_number.text = str(character.speed)
 		
